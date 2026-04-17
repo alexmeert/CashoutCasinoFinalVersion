@@ -363,6 +363,7 @@ namespace CashoutCasino.Character
 			if (Multiplayer.IsServer()) { Deaths++; Rpc(MethodName.SyncStats, Kills, Deaths); }
 			isDead = true;
 			SetPhysicsProcess(false);
+			SetProcessInput(true); // Keep input enabled while dead so Tab (leaderboard) still works.
 			spawnPosition = respawnPos;
 			_lastTpAnim = "Death";
 			if (_tpAnimPlayer != null && _tpAnimPlayer.HasAnimation("Death"))
@@ -513,8 +514,7 @@ namespace CashoutCasino.Character
 			// Tab works even when dead
 			if (@event is InputEventKey tab && tab.Keycode == Key.Tab)
 			{
-				GD.Print($"[Leaderboard] Tab {(tab.Pressed ? "pressed" : "released")}, leaderboard={((_leaderboard != null) ? "found" : "NULL")}, authority={IsMultiplayerAuthority()}");
-				if (_leaderboard != null)
+					if (_leaderboard != null)
 				{
 					_leaderboard.Visible = tab.Pressed;
 					if (tab.Pressed) _leaderboard.Refresh();
