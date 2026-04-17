@@ -450,6 +450,7 @@ namespace CashoutCasino.Character
 				hud?.ShowAliveUI();
 				hud?.OnHealthChanged(currentHealth, maxHealth);
 				Input.MouseMode = Input.MouseModeEnum.Captured;
+				SetProcessInput(true);
 			}
 		}
 
