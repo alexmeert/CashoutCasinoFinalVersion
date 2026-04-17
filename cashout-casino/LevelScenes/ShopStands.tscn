@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://7vne4o6g8hbf" path="res://Assets/2D-Textures-Assets/seamless_pattern_16x16px_SpriteSheet_ 266.png" id="1_s58pp"]
 [ext_resource type="PackedScene" uid="uid://b0hhwf5a8sskd" path="res://Assets/3D-Models/ShopSign.gltf" id="2_h4jre"]
 [ext_resource type="PackedScene" uid="uid://cjgx1njk4ekgd" path="res://Assets/3D-Models/DiceShotgun.gltf" id="3_u3ox5"]
+[ext_resource type="PackedScene" uid="uid://cgg3gldwl6ev" path="res://Assets/3D-Models/Boots.gltf" id="5_jcquc"]
+[ext_resource type="PackedScene" uid="uid://cvlfv31rwki1i" path="res://Assets/3D-Models/DamageIncrease.gltf" id="6_dbae2"]
+[ext_resource type="PackedScene" uid="uid://cheedxi8467jh" path="res://Assets/3D-Models/HealthUpgrade.gltf" id="7_da5o4"]
 [ext_resource type="Script" uid="uid://bho2g2e6ucuhn" path="res://Scripts/Level/ShopStands.cs" id="99_shop"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g18sr"]
@@ -71,4 +74,14 @@ font_size = 48
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ShopInteract/InteractArea" unique_id=1235432465]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 1.5848652, 0, 1.7796607)
 shape = SubResource("SphereShape3D_shop")
+
+[node name="blockbench_export" parent="." unique_id=448507462 instance=ExtResource("5_jcquc")]
+transform = Transform3D(0.2499927, 0, -0.0019111186, 0, 0.25, 0, 0.0019111186, 0, 0.2499927, 0.5450696, 0.33437872, 3.2667742)
+
+[node name="blockbench_export2" parent="." unique_id=1202430987 instance=ExtResource("6_dbae2")]
+transform = Transform3D(0.4999854, 0, -0.0038222373, 0, 0.5, 0, 0.0038222373, 0, 0.4999854, 0.022531135, 0.21045566, -0.004127463)
+
+[node name="blockbench_export3" parent="." unique_id=937355766 instance=ExtResource("7_da5o4")]
+transform = Transform3D(0.28850695, 0.08221132, -0.0022431524, -0.07996539, 0.28232837, 0.06241959, 0.019216344, -0.05943038, 0.2934258, 2.460193, 0.27543682, 3.392753)
