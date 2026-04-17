@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://ewx40aocagum"]
+
+[ext_resource type="Texture2D" uid="uid://7vne4o6g8hbf" path="res://Assets/2D-Textures-Assets/seamless_pattern_16x16px_SpriteSheet_ 266.png" id="1_s58pp"]
+[ext_resource type="PackedScene" uid="uid://b0hhwf5a8sskd" path="res://Assets/3D-Models/ShopSign.gltf" id="2_h4jre"]
+[ext_resource type="PackedScene" uid="uid://cjgx1njk4ekgd" path="res://Assets/3D-Models/DiceShotgun.gltf" id="3_u3ox5"]
+[ext_resource type="Script" uid="uid://bho2g2e6ucuhn" path="res://Scripts/Level/ShopStands.cs" id="99_shop"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g18sr"]
+albedo_texture = ExtResource("1_s58pp")
+texture_filter = 0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_shop"]
+radius = 2.5
+
+[node name="ShopStands" type="CSGCombiner3D" unique_id=1477661347]
+transform = Transform3D(0.9999708, 0, 0.0076444745, 0, 1, 0, -0.0076444745, 0, 0.9999708, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_g18sr")
+use_collision = true
+script = ExtResource("99_shop")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1867576359]
+transform = Transform3D(0.9999708, 0, -0.0076444745, 0, 1, 0, 0.0076444745, 0, 0.9999708, -0.6469114, -0.087007105, 1.5241566)
+size = Vector3(0.585083, 0.84277344, 0.6254883)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1200476819]
+transform = Transform3D(0.71978825, 0, 0.69419366, 0, 1, 0, -0.69419366, 0, 0.71978825, 0.53414345, -0.087007105, 3.3122177)
+size = Vector3(0.585083, 0.84277344, 0.6254883)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=692735968]
+transform = Transform3D(0.8335389, 0, 0.55246085, 0, 1, 0, -0.55246085, 0, 0.8335389, -0.07995653, -0.24539322, 2.5090885)
+size = Vector3(0.585083, 0.526001, 0.6254883)
+
+[node name="ShopSign" parent="." unique_id=1144197169 instance=ExtResource("2_h4jre")]
+transform = Transform3D(-0.8310428, 0, 0.4301675, 0, 2.141137, 0, -1.8766807, 0, -0.19048928, 0.9461875, 1.6102921, 1.4030743)
+
+[node name="ShotgunShop" parent="." unique_id=997094177 instance=ExtResource("3_u3ox5")]
+transform = Transform3D(1.452306, 0, 0.9301495, 0, 1.577057, 0, -0.86777633, 0, 1.5566934, 3.0022488, -1.097863, 4.3154488)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=609540338]
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="." unique_id=1269822821]
+transform = Transform3D(-0.7413846, 0, -1.9237213, 0, 1, 0, 0.69499004, 0, -2.0521412, 2.6449685, -0.030821323, 3.671215)
+size = Vector3(0.82910156, 0.9383545, 1)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="." unique_id=634803721]
+transform = Transform3D(-0.86593354, 0, -1.4720405, 0, 1, 0, 0.5318097, 0, -2.3968909, 1.7695637, 0.5551467, 1.3708916)
+size = Vector3(1.9516602, 2.1102905, 0.6442871)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="." unique_id=1928578300]
+transform = Transform3D(-0.17977895, 0, -2.7684577, 0, 1, 0, 1.0001711, 0, -0.49762577, 1.7425876, 1.9173771, 1.0420437)
+size = Vector3(0.6008301, 0.65182495, 0.25427246)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="." unique_id=840667645]
+transform = Transform3D(-1.0150484, 0, 0.13387573, 0, 1, 0, -0.048365608, 0, -2.809638, 1.5163374, 1.7795426, 2.1020908)
+size = Vector3(0.44580078, 0.35179138, 0.1729126)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="." unique_id=1724579617]
+transform = Transform3D(-0.31759685, 0, -2.6719215, 0, 1, 0, 0.9652951, 0, -0.8791036, 2.0187702, 0.7458148, 3.0368023)
+size = Vector3(0.44580078, 0.65135956, 0.1729126)
+
+[node name="ShopInteract" type="StaticBody3D" parent="." unique_id=263174212]
+
+[node name="PromptLabel" type="Label3D" parent="ShopInteract" unique_id=151908078]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+visible = false
+billboard = 1
+text = "[E] Shop"
+font_size = 48
+
+[node name="InteractArea" type="Area3D" parent="ShopInteract" unique_id=1086400236]
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShopInteract/InteractArea" unique_id=1235432465]
+shape = SubResource("SphereShape3D_shop")

@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://dufyvricl5qqi"]
+
+[ext_resource type="Script" uid="uid://buq7bi58l3fu1" path="res://NetworkCore/WanLobbySystem/BetterLobby/LobbyStreamlined.cs" id="1_nacce"]
+[ext_resource type="Script" uid="uid://b2fb80xs807f4" path="res://NetworkCore/NetworkCore.cs" id="2_nacce"]
+[ext_resource type="PackedScene" uid="uid://bfxnwdbaagl2n" path="res://MainScene/game_root.tscn" id="3_nacce"]
+
+[node name="AbsoluteRoot" type="Node" unique_id=1990134794]
+
+[node name="GenericLobbySystem" type="CanvasLayer" parent="." unique_id=1242816849 node_paths=PackedStringArray("AgentSpawner", "GameNameBox")]
+script = ExtResource("1_nacce")
+PublicIP = "23.128.112.67"
+PrivateIP = "10.200.208.186"
+PortMinimum = 9000
+PortMaximum = 10000
+AgentSpawner = NodePath("HBoxContainer/ColorRect2/ActiveGames/ActiveGames/MultiplayerSpawner")
+GameNameBox = NodePath("HBoxContainer/ColorRect/MarginContainer/LeftMenu/GameName")
+MaxGameTime = 700.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GenericLobbySystem" unique_id=791811500]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="GenericLobbySystem/HBoxContainer" unique_id=2139474412]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 0.6, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="GenericLobbySystem/HBoxContainer/ColorRect" unique_id=368824437]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.005
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -4.0
+offset_right = 0.13000488
+offset_bottom = -4.0
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="LeftMenu" type="VBoxContainer" parent="GenericLobbySystem/HBoxContainer/ColorRect/MarginContainer" unique_id=471892044]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="GenericLobbySystem/HBoxContainer/ColorRect/MarginContainer/LeftMenu" unique_id=684644334]
+layout_mode = 2
+text = "REALLY COOL LOBBY SYSTEM"
+horizontal_alignment = 1
+
+[node name="GameName" type="TextEdit" parent="GenericLobbySystem/HBoxContainer/ColorRect/MarginContainer/LeftMenu" unique_id=1429459134]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+placeholder_text = "Enter Game Name"
+
+[node name="Button" type="Button" parent="GenericLobbySystem/HBoxContainer/ColorRect/MarginContainer/LeftMenu" unique_id=2128072017]
+layout_mode = 2
+text = "Create Game"
+
+[node name="ColorRect2" type="ColorRect" parent="GenericLobbySystem/HBoxContainer" unique_id=2027901455]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.03529412, 1, 0.050980393, 1)
+
+[node name="ActiveGames" type="MarginContainer" parent="GenericLobbySystem/HBoxContainer/ColorRect2" unique_id=1169808374]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ActiveGames" type="VBoxContainer" parent="GenericLobbySystem/HBoxContainer/ColorRect2/ActiveGames" unique_id=97118684]
+layout_mode = 2
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="GenericLobbySystem/HBoxContainer/ColorRect2/ActiveGames/ActiveGames" unique_id=1580790260]
+_spawnable_scenes = PackedStringArray("uid://cs7s4kaurdy11")
+spawn_path = NodePath("..")
+script = ExtResource("2_nacce")
+SpawnInexZeroOnConnect = true
+
+[node name="GameRoot" parent="." unique_id=1460889274 instance=ExtResource("3_nacce")]
+_portMinimum = 9000
+_localPort = 9000
+_serverAddress = "23.128.112.67"
+_maxConnections = 5
+
+[connection signal="pressed" from="GenericLobbySystem/HBoxContainer/ColorRect/MarginContainer/LeftMenu/Button" to="GenericLobbySystem" method="CreatNewGameServer"]

@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://m3sudksspt1s"]
+
+[ext_resource type="Script" uid="uid://blds6koihqda4" path="res://Scripts/Menu/Leaderboard.cs" id="1_pk2cl"]
+[ext_resource type="FontFile" uid="uid://ubdv0skyrbjb" path="res://Assets/upheaval/upheavtt.ttf" id="2_c05wl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
+bg_color = Color(0.05, 0.05, 0.08, 0.92)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.3, 0.3, 0.4, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="Leaderboard" type="CanvasLayer" unique_id=773598109]
+layer = 20
+script = ExtResource("1_pk2cl")
+
+[node name="Panel" type="Panel" parent="." unique_id=1667092192]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bg")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=263666117]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1024349875]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="Panel/MarginContainer/VBox" unique_id=1274809293]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.85, 0.6, 1)
+theme_override_fonts/font = ExtResource("2_c05wl")
+theme_override_font_sizes/font_size = 20
+text = "LEADERBOARD"
+horizontal_alignment = 1
+
+[node name="Header" type="HBoxContainer" parent="Panel/MarginContainer/VBox" unique_id=2126658055]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ColName" type="Label" parent="Panel/MarginContainer/VBox/Header" unique_id=535127071]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.6, 1)
+theme_override_fonts/font = ExtResource("2_c05wl")
+theme_override_font_sizes/font_size = 13
+text = "PLAYER"
+
+[node name="ColScore" type="Label" parent="Panel/MarginContainer/VBox/Header" unique_id=1822354031]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.6, 1)
+theme_override_fonts/font = ExtResource("2_c05wl")
+theme_override_font_sizes/font_size = 13
+text = "SCORE"
+
+[node name="ColKills" type="Label" parent="Panel/MarginContainer/VBox/Header" unique_id=741447919]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.6, 1)
+theme_override_fonts/font = ExtResource("2_c05wl")
+theme_override_font_sizes/font_size = 13
+text = "KILLS"
+
+[node name="ColDeaths" type="Label" parent="Panel/MarginContainer/VBox/Header" unique_id=1686297194]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.6, 1)
+theme_override_fonts/font = ExtResource("2_c05wl")
+theme_override_font_sizes/font_size = 13
+text = "DEATHS"
+
+[node name="Separator" type="HSeparator" parent="Panel/MarginContainer/VBox" unique_id=735287062]
+layout_mode = 2
+
+[node name="Rows" type="VBoxContainer" parent="Panel/MarginContainer/VBox" unique_id=117099825]
+layout_mode = 2
+theme_override_constants/separation = 4

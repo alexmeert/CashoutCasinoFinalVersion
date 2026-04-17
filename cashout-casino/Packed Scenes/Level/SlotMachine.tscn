@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cc31bm3yl5i5r"]
+
+[ext_resource type="Script" uid="uid://bxuntvus4axom" path="res://Scripts/Level/SlotMachine.cs" id="1_8f54s"]
+[ext_resource type="PackedScene" uid="uid://qrwe6n5i3pgq" path="res://Assets/3D-Models/SlotmachineTexture.gltf" id="2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_body"]
+size = Vector3(1.2, 2, 0.8)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_interact"]
+radius = 2.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_cooldown"]
+size = Vector2(1, 0.12)
+
+[node name="SlotMachine" type="StaticBody3D" unique_id=1275681976]
+script = ExtResource("1_8f54s")
+
+[node name="Model" parent="." unique_id=1520745358 instance=ExtResource("2")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=608968429]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_body")
+
+[node name="InteractArea" type="Area3D" parent="." unique_id=2115746176]
+collision_layer = 0
+
+[node name="InteractShape" type="CollisionShape3D" parent="InteractArea" unique_id=768389060]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_interact")
+
+[node name="PromptLabel" type="Label3D" parent="." unique_id=435495779]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2043726, 0.5)
+visible = false
+billboard = 2
+no_depth_test = true
+modulate = Color(1, 1, 0.3, 1)
+text = "[E] Use Slot Machine  ($20)"
+outline_size = 4
+
+[node name="ResultLabel" type="Label3D" parent="." unique_id=1007618833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.426856, 0.5)
+visible = false
+billboard = 2
+no_depth_test = true
+modulate = Color(0.2, 1, 0.3, 1)
+font_size = 36
+outline_size = 5
+
+[node name="CooldownBar" type="Node3D" parent="." unique_id=1416421935]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0.5)
+
+[node name="SubViewport" type="SubViewport" parent="CooldownBar" unique_id=187350216]
+size = Vector2i(256, 32)
+render_target_update_mode = 3
+
+[node name="Bar" type="ProgressBar" parent="CooldownBar/SubViewport" unique_id=1831654688]
+offset_right = 256.0
+offset_bottom = 32.0
+value = 100.0
+show_percentage = false
+
+[node name="Quad" type="MeshInstance3D" parent="CooldownBar" unique_id=1080467472]
+visible = false
+mesh = SubResource("QuadMesh_cooldown")

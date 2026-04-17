@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://cqy0pqnry148c"]
+
+[ext_resource type="PackedScene" uid="uid://coscxp08lodnw" path="res://Packed Scenes/Character/Player.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://xkbyyooa24mv" path="res://Packed Scenes/Level/ATMMachine.tscn" id="1_otfp1"]
+[ext_resource type="PackedScene" path="res://Packed Scenes/Character/AIEnemy.tscn" id="2_d2gth"]
+[ext_resource type="PackedScene" uid="uid://cc31bm3yl5i5r" path="res://Packed Scenes/Level/SlotMachine.tscn" id="3_7f6qr"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ernkg"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+energy_multiplier = 2.0
+
+[sub_resource type="Sky" id="Sky_d2gth"]
+sky_material = SubResource("ProceduralSkyMaterial_ernkg")
+
+[sub_resource type="Environment" id="Environment_7f6qr"]
+background_mode = 2
+sky = SubResource("Sky_d2gth")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1"]
+size = Vector3(40, 1, 40)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1"]
+size = Vector3(40, 1, 40)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1"]
+albedo_color = Color(0.3, 0.3, 0.3, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d2gth"]
+albedo_color = Color(1, 0.56078434, 0, 1)
+
+[node name="TestScene" type="Node3D" unique_id=1488087813]
+
+[node name="ATMMachine" parent="." unique_id=130021698 instance=ExtResource("1_otfp1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.59534, 0, 3.6200686)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=948161909]
+environment = SubResource("Environment_7f6qr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=120673588]
+transform = Transform3D(0.707, -0.5, 0.5, 0, 0.707, 0.707, -0.707, -0.5, 0.5, 0, 10, 0)
+light_energy = 1.2
+shadow_enabled = true
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=200865452]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=75862934]
+shape = SubResource("BoxShape3D_1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1670141010]
+mesh = SubResource("BoxMesh_1")
+surface_material_override/0 = SubResource("StandardMaterial3D_1")
+
+[node name="Player" parent="." unique_id=1104525572 instance=ExtResource("1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+jumpForce = 7.0
+
+[node name="AiEnemy" parent="." unique_id=701028671 instance=ExtResource("2_d2gth")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.150295, 1, -15.74277)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1942627869]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1455948049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -20)
+size = Vector3(40, 10, 0.5)
+material = SubResource("StandardMaterial3D_d2gth")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1540033349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 20)
+size = Vector3(40, 10, 0.5)
+material = SubResource("StandardMaterial3D_d2gth")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=899612523]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -20, 5, 0.15208435)
+size = Vector3(40, 10, 0.5)
+material = SubResource("StandardMaterial3D_d2gth")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1734526055]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20, 5, 0.15208435)
+size = Vector3(40, 10, 0.5)
+material = SubResource("StandardMaterial3D_d2gth")
+
+[node name="P1Spawn" type="Marker3D" parent="." unique_id=1837257673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 16)
+
+[node name="P2Spawn" type="Marker3D" parent="." unique_id=1872396596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -17)
+
+[node name="P3Spawn" type="Marker3D" parent="." unique_id=821555611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, -17)
+
+[node name="P4Spawn" type="Marker3D" parent="." unique_id=386777217]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 17)
+
+[node name="SlotMachine" parent="." unique_id=1275681976 instance=ExtResource("3_7f6qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.469803, 0, 4.1388063)

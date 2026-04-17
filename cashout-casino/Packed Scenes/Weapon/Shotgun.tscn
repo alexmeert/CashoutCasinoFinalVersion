@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cn70t0now5k1c"]
+
+[ext_resource type="Script" uid="uid://bvr8jj3d8i701" path="res://Scripts/Weapon/Shotgun.cs" id="1"]
+[ext_resource type="PackedScene" uid="uid://cjgx1njk4ekgd" path="res://Assets/3D-Models/DiceShotgun.gltf" id="2_cp37k"]
+
+[node name="Shotgun" type="Node3D" unique_id=1004360983 node_paths=PackedStringArray("Muzzle")]
+script = ExtResource("1")
+spreadAngle = 5.0
+Muzzle = NodePath("Marker3D")
+
+[node name="blockbench_export" parent="." unique_id=594323444 instance=ExtResource("2_cp37k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18, -1.1671788, -0.41049337)
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=430002946]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17991401, -0.118460745, -0.8356195)

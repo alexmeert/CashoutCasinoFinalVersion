@@ -1,0 +1,160 @@
+[gd_scene format=3 uid="uid://d04vhwk4mdveb"]
+
+[ext_resource type="Script" uid="uid://bs3rqo5o8vn1x" path="res://npm/UserNpm.cs" id="1_a7naa"]
+[ext_resource type="Script" uid="uid://yo2i7m3b6pph" path="res://NetworkCore/NetID.cs" id="6_uohv0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uohv0"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iahp6"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_rrpvg"]
+properties/0/path = NodePath("MultiplayerSynchronizer:IsNetworkReady")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("MultiplayerSynchronizer:IsSynced")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("MultiplayerSynchronizer:OwnerId")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath(".:PlayerName")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath(".:IsReady")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath(".:MyColor")
+properties/5/spawn = true
+properties/5/replication_mode = 1
+properties/6/path = NodePath(".:ColorSelection")
+properties/6/spawn = true
+properties/6/replication_mode = 2
+properties/7/path = NodePath(".:WeaponClassSelection")
+properties/7/spawn = true
+properties/7/replication_mode = 2
+properties/8/path = NodePath("Background:color")
+properties/8/spawn = true
+properties/8/replication_mode = 1
+
+[node name="UserNPM" type="Control" unique_id=168317910 node_paths=PackedStringArray("MyName", "MyNPMBackground", "ColorOptionButton", "WeaponClassOptionButton", "ReadyLabel", "ReadyCheckBox", "MyNetID")]
+custom_minimum_size = Vector2(256, 341)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -896.0
+offset_bottom = -307.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a7naa")
+MyName = NodePath("TextEdit")
+MyNPMBackground = NodePath("Background")
+ColorOptionButton = NodePath("ColorOptionButton")
+WeaponClassOptionButton = NodePath("ClassOptionButton")
+ReadyLabel = NodePath("ReadyLabel")
+ReadyCheckBox = NodePath("ReadyCheckBox")
+MyNetID = NodePath("MultiplayerSynchronizer")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1154818382]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=491064968]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 1
+anchors_preset = -1
+offset_left = 18.0
+offset_top = 30.0
+offset_right = 238.0
+offset_bottom = 80.0
+placeholder_text = "Username"
+tab_input_mode = false
+
+[node name="ColorOptionLabel" type="Label" parent="." unique_id=2133889175]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 108.0
+offset_right = 230.0
+offset_bottom = 131.0
+text = "Color"
+label_settings = SubResource("LabelSettings_uohv0")
+
+[node name="ColorOptionButton" type="OptionButton" parent="." unique_id=1738827562]
+clip_contents = true
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 0
+offset_left = 19.0
+offset_top = 132.0
+offset_right = 238.0
+offset_bottom = 182.0
+allow_reselect = true
+item_count = 6
+popup/item_0/text = "Red"
+popup/item_0/id = 3
+popup/item_1/text = "Green"
+popup/item_1/id = 1
+popup/item_2/text = "Blue"
+popup/item_2/id = 2
+popup/item_3/text = "Yellow"
+popup/item_3/id = 3
+popup/item_4/text = "Purple"
+popup/item_4/id = 4
+popup/item_5/text = "Orange"
+popup/item_5/id = 5
+
+[node name="ClassOptionLabel" type="Label" parent="." unique_id=1589937046]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 213.0
+offset_right = 230.0
+offset_bottom = 236.0
+text = "Weapon Class"
+label_settings = SubResource("LabelSettings_uohv0")
+
+[node name="ClassOptionButton" type="OptionButton" parent="." unique_id=992497087]
+clip_contents = true
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 0
+offset_left = 18.0
+offset_top = 236.0
+offset_right = 238.0
+offset_bottom = 286.0
+item_count = 3
+popup/item_0/text = "Assault Rifle"
+popup/item_0/id = 0
+popup/item_1/text = "Dual Pistols"
+popup/item_1/id = 1
+popup/item_2/text = "Shotgun"
+popup/item_2/id = 2
+
+[node name="ReadyCheckBox" type="CheckBox" parent="." unique_id=1217930863]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 293.0
+offset_right = 226.0
+offset_bottom = 317.0
+scale = Vector2(1.7199988, 1.7199988)
+
+[node name="ReadyLabel" type="Label" parent="." unique_id=625917534]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 302.0
+offset_right = 104.0
+offset_bottom = 325.0
+text = "I'm Ready!"
+label_settings = SubResource("LabelSettings_iahp6")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=727250744]
+replication_config = SubResource("SceneReplicationConfig_rrpvg")
+script = ExtResource("6_uohv0")
+
+[connection signal="text_changed" from="TextEdit" to="." method="OnNameChange"]
+[connection signal="item_selected" from="ColorOptionButton" to="." method="OnColorChange"]
+[connection signal="item_selected" from="ClassOptionButton" to="." method="OnWeaponClassChange"]
+[connection signal="toggled" from="ReadyCheckBox" to="." method="OnIsReady"]

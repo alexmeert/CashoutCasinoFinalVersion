@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://dn7ausld85kvc"]
+
+[ext_resource type="Script" uid="uid://dhj51cqj4qa4i" path="res://Scripts/Level/Podium.cs" id="1_7qb5f"]
+[ext_resource type="FontFile" uid="uid://ubdv0skyrbjb" path="res://Assets/upheaval/upheavtt.ttf" id="2_a0nx2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p"]
+sky_top_color = Color(0.05, 0.05, 0.12, 1)
+sky_horizon_color = Color(0.15, 0.1, 0.2, 1)
+ground_horizon_color = Color(0.1, 0.08, 0.15, 1)
+energy_multiplier = 0.8
+
+[sub_resource type="Sky" id="Sky_p"]
+sky_material = SubResource("ProceduralSkyMaterial_p")
+
+[sub_resource type="Environment" id="Environment_p"]
+background_mode = 2
+sky = SubResource("Sky_p")
+tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 1.2
+
+[sub_resource type="BoxMesh" id="BoxMesh_platform"]
+size = Vector3(3, 0.3, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_platform"]
+albedo_color = Color(0.15, 0.12, 0.2, 1)
+metallic = 0.6
+roughness = 0.3
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_platform"]
+size = Vector3(3, 0.3, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_winner"]
+bg_color = Color(0.05, 0.04, 0.08, 0.88)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.85, 0.75, 0.2, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Podium" type="Node3D" unique_id=1198925417]
+script = ExtResource("1_7qb5f")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=385203233]
+environment = SubResource("Environment_p")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=307214459]
+transform = Transform3D(0.866, -0.354, 0.354, 0, 0.707, 0.707, -0.5, -0.612, 0.612, 0, 4, 2)
+light_energy = 1.4
+shadow_enabled = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=638252123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 1.5)
+light_color = Color(0.9, 0.85, 1, 1)
+light_energy = 2.0
+omni_range = 8.0
+
+[node name="Platform" type="StaticBody3D" parent="." unique_id=1382357067]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0)
+
+[node name="PlatformMesh" type="MeshInstance3D" parent="Platform" unique_id=2130279137]
+mesh = SubResource("BoxMesh_platform")
+surface_material_override/0 = SubResource("StandardMaterial3D_platform")
+
+[node name="PlatformCollision" type="CollisionShape3D" parent="Platform" unique_id=832496992]
+shape = SubResource("BoxShape3D_platform")
+
+[node name="ModelSpawnPoint" type="Node3D" parent="." unique_id=1354401476]
+
+[node name="PodiumCamera" type="Camera3D" parent="." unique_id=1423342585]
+transform = Transform3D(1, 0, 0, 0, 0.998, 0.063, 0, -0.063, 0.998, 0, 1.65, 2.2)
+fov = 55.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=664551545]
+layer = 10
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1720256359]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -380.0
+offset_top = 24.0
+offset_right = 380.0
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_winner")
+
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/Panel" unique_id=446019730]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 10.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+
+[node name="WinnerLabel" type="Label" parent="CanvasLayer/Panel/VBox" unique_id=148195736]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.88, 0.2, 1)
+theme_override_fonts/font = ExtResource("2_a0nx2")
+theme_override_font_sizes/font_size = 32
+text = "  WINNER  "
+horizontal_alignment = 1
+
+[node name="StatsLabel" type="Label" parent="CanvasLayer/Panel/VBox" unique_id=1100877056]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.85, 1)
+theme_override_fonts/font = ExtResource("2_a0nx2")
+theme_override_font_sizes/font_size = 16
+text = "Score: $0     K/D: 0.00     (0K / 0D)"
+horizontal_alignment = 1

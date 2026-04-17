@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cs3lkmqn0ldf4"]
+
+[ext_resource type="Script" uid="uid://sut6qlacnwvh" path="res://Scripts/Weapon/DualPistols.cs" id="1"]
+[ext_resource type="PackedScene" uid="uid://dlyvrwnqupi1r" path="res://Assets/3D-Models/PokerChipDualPistols.gltf" id="2_rbyfr"]
+
+[node name="DualPistols" type="Node3D" unique_id=100188987 node_paths=PackedStringArray("LeftMuzzle", "RightMuzzle")]
+script = ExtResource("1")
+LeftMuzzle = NodePath("LeftMarker")
+RightMuzzle = NodePath("RightMarker")
+bulletSpeed = 150.0
+
+[node name="blockbench_export2" parent="." unique_id=962484517 instance=ExtResource("2_rbyfr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26, -1.183, -0.376)
+
+[node name="blockbench_export" parent="." unique_id=1799607304 instance=ExtResource("2_rbyfr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26008147, -1.1833578, -0.37646884)
+
+[node name="RightMarker" type="Marker3D" parent="." unique_id=1399286944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26008147, -0.10984782, -0.48608774)
+
+[node name="LeftMarker" type="Marker3D" parent="." unique_id=657206488]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25980663, -0.10984782, -0.48608774)

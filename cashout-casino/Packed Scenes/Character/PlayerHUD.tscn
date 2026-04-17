@@ -1,0 +1,184 @@
+[gd_scene format=3 uid="uid://dq4kmgk564ws"]
+
+[ext_resource type="Script" uid="uid://ciwoarq4k3maq" path="res://Scripts/Character/PlayerHud.cs" id="1_5yeb8"]
+[ext_resource type="FontFile" uid="uid://ubdv0skyrbjb" path="res://Assets/upheaval/upheavtt.ttf" id="2_euwb4"]
+[ext_resource type="Texture2D" uid="uid://byr0vuf03kcyt" path="res://Characters/crosshair001.png" id="2_nb2hl"]
+[ext_resource type="Texture2D" uid="uid://b3nkncah18jhq" path="res://Assets/KillfeedIcons/rifle.png" id="2_pdn4l"]
+[ext_resource type="Texture2D" uid="uid://cdww08t1w2wpk" path="res://Assets/KillfeedIcons/shotgun.png" id="3_fb8j3"]
+[ext_resource type="Texture2D" uid="uid://2hv5jys2v8w1" path="res://Assets/KillfeedIcons/pistol.png" id="4_wgfcp"]
+[ext_resource type="Texture2D" uid="uid://c3bjpgrptauqm" path="res://Assets/KillfeedIcons/head.png" id="5_fb8j3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Panel"]
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 0.55)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_HealthTitle"]
+font_size = 13
+font_color = Color(0.8, 0.8, 0.8, 0.8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_HealthBg"]
+bg_color = Color(0.15, 0.15, 0.15, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_WeaponName"]
+font_size = 15
+font_color = Color(0.9, 0.85, 0.6, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_Ammo"]
+font_size = 22
+
+[sub_resource type="LabelSettings" id="LabelSettings_Currency"]
+font_size = 20
+font_color = Color(0.3, 1, 0.4, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_AtmDebt"]
+font_size = 13
+font_color = Color(1, 0.3, 0.3, 1)
+
+[node name="PlayerHud" type="CanvasLayer" unique_id=335599664]
+layer = 10
+script = ExtResource("1_5yeb8")
+RifleIcon = ExtResource("2_pdn4l")
+ShotgunIcon = ExtResource("3_fb8j3")
+PistolIcon = ExtResource("4_wgfcp")
+HeadshotIcon = ExtResource("5_fb8j3")
+
+[node name="HealthPanel" type="Panel" parent="." unique_id=591257236]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -185.85
+offset_right = 279.0
+offset_bottom = -138.84915
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_Panel")
+
+[node name="VBox" type="VBoxContainer" parent="HealthPanel" unique_id=413318541]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/separation = 4
+
+[node name="HealthTitle" type="Label" parent="HealthPanel/VBox" unique_id=821406436]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_euwb4")
+text = "HP"
+label_settings = SubResource("LabelSettings_HealthTitle")
+horizontal_alignment = 1
+
+[node name="HealthBar" type="ProgressBar" parent="HealthPanel/VBox" unique_id=281456607]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_HealthBg")
+value = 100.0
+show_percentage = false
+
+[node name="PlayerHUDPanel" type="Panel" parent="." unique_id=2106417309]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -130.0
+offset_right = 279.0
+offset_bottom = -16.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_Panel")
+
+[node name="VBox" type="VBoxContainer" parent="PlayerHUDPanel" unique_id=1544156763]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/separation = 2
+
+[node name="WeaponName" type="Label" parent="PlayerHUDPanel/VBox" unique_id=890463849]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_euwb4")
+text = "Assault Rifle"
+label_settings = SubResource("LabelSettings_WeaponName")
+horizontal_alignment = 1
+
+[node name="Ammo" type="Label" parent="PlayerHUDPanel/VBox" unique_id=1560645271]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_euwb4")
+text = "100 / 100"
+label_settings = SubResource("LabelSettings_Ammo")
+horizontal_alignment = 1
+
+[node name="Currency" type="Label" parent="PlayerHUDPanel/VBox" unique_id=1541214477]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_euwb4")
+text = "$100"
+label_settings = SubResource("LabelSettings_Currency")
+horizontal_alignment = 1
+
+[node name="AtmDebt" type="Label" parent="PlayerHUDPanel/VBox" unique_id=2023039502]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_euwb4")
+text = "-$50 (ATM)"
+label_settings = SubResource("LabelSettings_AtmDebt")
+horizontal_alignment = 1
+
+[node name="Reticle" type="Control" parent="." unique_id=706063848]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Reticle" unique_id=1978336124]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.9791285)
+mouse_filter = 2
+texture = ExtResource("2_nb2hl")
+expand_mode = 2
+
+[node name="DamageOverlay" type="ColorRect" parent="." unique_id=998877665]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.8, 0, 0, 0)
+
+[node name="KillFeedContainer" type="VBoxContainer" parent="." unique_id=833547975]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -320.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 10.0
+grow_horizontal = 0
+theme_override_constants/separation = 4
+alignment = 1

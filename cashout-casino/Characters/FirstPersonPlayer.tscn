@@ -1,0 +1,1879 @@
+[gd_scene format=4 uid="uid://b3hkeyd5220ax"]
+
+[ext_resource type="Script" uid="uid://74q1uh0jxy77" path="res://Scripts/Weapon/WeaponManager.cs" id="2_cayv7"]
+[ext_resource type="Script" uid="uid://db5nv3t24c6a0" path="res://Scripts/Weapon/AssaultRifle.cs" id="2_nfqe0"]
+[ext_resource type="Texture2D" uid="uid://bbcl8p3xwque8" path="res://Assets/3D-Models/RouletteWheelDrumGun_0.png" id="3_0skwq"]
+[ext_resource type="Script" uid="uid://sut6qlacnwvh" path="res://Scripts/Weapon/DualPistols.cs" id="4_nfqe0"]
+[ext_resource type="PackedScene" uid="uid://dlyvrwnqupi1r" path="res://Assets/3D-Models/PokerChipDualPistols.gltf" id="5_0skwq"]
+[ext_resource type="Script" uid="uid://bvr8jj3d8i701" path="res://Scripts/Weapon/Shotgun.cs" id="6_0skwq"]
+[ext_resource type="Texture2D" uid="uid://bhue6y85nfkg1" path="res://Assets/3D-Models/DiceShotgun_0.png" id="7_1b2qk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8wdxa"]
+resource_name = "material_0"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("3_0skwq")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_0flrt"]
+_surfaces = [{
+"aabb": AABB(-0.0625, 0.09375, -0.25, 0.125, 0.125, 0.5),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAwAAAAIAAAAEAAEAAQAFAAMABAAFAAEAAwAGAAAABgAEAAAABQAGAAMABgAHAAQABAAHAAUABQAHAAYA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAD//wAA//8AAP///////wAAAAD/////AAD//wAAAAAAAAAAAAD//wAAAAD//wAAAAAAAAAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8w3c5"]
+resource_name = "blockbench_export_mesh"
+_surfaces = [{
+"aabb": AABB(-0.0625, 0.09375, -0.25, 0.125, 0.125, 0.5),
+"attribute_data": PackedByteArray("/28AAP8v/w//LwAA/2//D/+P/yf/T/8X/4//F/9P/ycAAP9v/w//L/8P/28AAP8v/1//j/9P/0//X/9P/0//j/+n/yf/l/8X/6f/F/+X/yf/p/9v/5f/f/+X/2//p/9/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_8wdxa"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA/7///wAA////v/////////+///8AAAAA/78AAAAA////vwAA//8AAP+/AAD//////78AAAAAAAD/vwAA//////+//////wAA/7//////////vwAA//8AAP+///8AAAAA/78AAAAA////v///AAD///+/AAAAAAAA/7///wAA//8AgAAA/////wCA////////AIAAAAAA//8AgAAA//8AAP////8AAAAA////////AAD//wAAAAAAAP///38AAP9/AAD/fwAA/38AAP9/////f////3////9///////9/////f////3////9/AAD/fwAA/38AAP9/AAD/f/9/////f////3////9/////f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_0flrt")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3h4cl"]
+_surfaces = [{
+"aabb": AABB(-0.046875, 0, -0.09375, 0.09375, 0.0625, 0.1875),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAwAAAAIAAAAEAAEAAQAFAAMABAAFAAEAAwAGAAAABgAEAAAABQAGAAMABgAHAAQABAAHAAUABQAHAAYA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAD//wAA//8AAP///////wAAAAD/////AAD//wAAAAAAAAAAAAD//wAAAAD//wAAAAAAAAAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dwdqf"]
+resource_name = "blockbench_export_mesh2"
+_surfaces = [{
+"aabb": AABB(-0.046875, 0, -0.09375, 0.09375, 0.0625, 0.1875),
+"attribute_data": PackedByteArray("/0f/F/8v/x//L/8X/0f/H/+f/1f/h/9P/5//T/+H/1f/h/9H/5P/L/+T/0f/h/8v/1v/r/9P/5f/W/+X/0//r/+7/4f/r/9//7v/f/+v/4f/u/+P/6//l/+v/4//u/+X"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_8wdxa"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA/7///wAA////v/////////+///8AAAAA/78AAAAA////vwAA//8AAP+/AAD//////78AAAAAAAD/vwAA//////+//////wAA/7//////////vwAA//8AAP+///8AAAAA/78AAAAA////v///AAD///+/AAAAAAAA/7///wAA//8AgAAA/////wCA////////AIAAAAAA//8AgAAA//8AAP////8AAAAA////////AAD//wAAAAAAAP///38AAP9/AAD/fwAA/38AAP9/////f////3////9///////9/////f////3////9/AAD/fwAA/38AAP9/AAD/f/9/////f////3////9/////f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_3h4cl")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8yu1m"]
+_surfaces = [{
+"aabb": AABB(-0.046875, -0.0625, -0.09375, 0.09375, 0.125, 0.325),
+"format": 34896613377,
+"index_count": 108,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAFAAEABgAEAAEABgABAAUABgAHAAQABAAHAAIACAAGAAUABgAIAAcAAwAJAAUAAAAJAAMACAAFAAoABwAIAAoACQAKAAUABwAKAAIACQALAAoAAAALAAkADAACAAoADAAKAA0ADQAKAAsADgACAAwADgAAAAIADwAMAA0ADwAOAAwADQALAA8AEAAOAA8AEQALAAAAEgAAAA4AEQAAABIAEgAOABAAEwALABEAEwARABIAEwAPAAsAEwASABAAEAAPABMA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("////f7CTAAD/////2EkAAP///3/YSQAA/////3ViAAD/////AAAAAAAA///YSQAAAAD//wAAAAD///9/nRgAAAAA/3+dGAAAAAD//3ViAAAAAP9/2EkAAAAA/3+wkwAA//8AABN7AAAAAAAAE3sAAP//AACwkwAAAAAAALCTAAD//wAAJvYAAAAA/3///wAA////f///AAAAAAAAJvYAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ol3ec"]
+resource_name = "blockbench_export_mesh3"
+_surfaces = [{
+"aabb": AABB(-0.046875, -0.0625, -0.09375, 0.09375, 0.125, 0.325),
+"attribute_data": PackedByteArray("zHr/Z8yG/1/Mhv9nzIL/XzKJAAAyhf8HMoUAADKR/wf/q/8//5//O/+r/zv/n/8//5f/l/+j/5v/l/+b/6P/l/+7/wv/rwAA/7sAAP+v/wv/w/8v/7f/N/+3/y//w/83/7v/p/+v/5//u/+f/6//pzJ9/wcyhQAAMoX/BzJ5AAD/n/8v/6v/O/+f/zv/q/8vzJL/X8yG/2fMhv9fzI7/ZzKN/w8ykf8HMpH/DzKF/wf/r/8j/7v/F/+7/yP/r/8XzHr/b8yG/2fMfv9vzHr/Z/+v/7f/u/+v/7v/t/+v/6//o/+H/5f/l/+X/4f/o/+XMmn/Z8x6/2/Mav9vzHr/Z/8P/7f/G/+n/xv/t/8P/6cyof8PMpH/B8yi/wcykf8P"),
+"format": 34896613399,
+"index_count": 108,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUA"),
+"material": SubResource("StandardMaterial3D_8wdxa"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("////f7CT/7//////2En/v////3/YSf+//////3Vi/78AAP//dWL/vwAA/3/YSf+/AAD//9hJ/78AAP9/sJP/v/////91Yv+/AAD//9hJ/7//////2En/vwAA//91Yv+/AAAAALCT/7///wAAE3v/vwAAAAATe/+///8AALCT/7////9/sJP/nwAA//91Yv+f/////3Vi/58AAP9/sJP/nwAA//8AAP//////f50Y////////AAD//wAA/3+dGP//////f50Y/78AAP9/2En/v////3/YSf+/AAD/f50Y/78AAP9/nRj/vwAA///YSf+/AAD/f9hJ/78AAP//AAD/vwAA//8AAP+//////9hJ/78AAP//2En/v/////8AAP+//////wAA/7////9/2En/v//////YSf+/////f50Y/78AAAAAE3v/vwAA/3+wk/+/AAAAALCT/78AAP9/2En/v///AAATe///AAD/f9hJ//8AAAAAE3v//////3/YSf////8AALCT/7////9/2En/v///AAATe/+/////f7CT/78AAAAAJvYKiP///3///wqI//8AACb2CogAAP9///8KiP//AAAm9v+/AAAAALCT/78AAAAAJvb/v///AACwk/+/////f////7///wAAsJP/v///AAAm9v+/////f7CT/78AAP9/////v////3+wk/+/////f////78AAP9/sJP/vwAAAAAm9v+/AAD/f7CT/78AAP9/////vwAAAACwk/+//38AAP9/AAD/fwAA/38AAP9/////f////3////9///////9/////f////3////9/AAD/fwAA/38AAP9/AAD/f////3////9/////f////39xmP//cZj//3GY//9xmP//AAD/fwAA/38AAP9/AAD/f/9/////f////3////9///////9/////f////3////9//38AAP9/AAD/fwAA/38AAP9/////f////3////9///98pf//fKX//3yl//98pf///38AAP9/AAD/fwAA/38AAAAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9//38AAP9/AAD/fwAA/38AAP///3////9/////f////3//f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_8yu1m")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vdray"]
+_surfaces = [{
+"aabb": AABB(-0.03125, 0, -0.0625, 0.0625, 0.0625, 0.125),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAwAAAAIAAAAEAAEAAQAFAAMABAAFAAEAAwAGAAAABgAEAAAABQAGAAMABgAHAAQABAAHAAUABQAHAAYA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAD//wAA//8AAP///////wAAAAD/////AAD//wAAAAAAAAAAAAD//wAAAAD//wAAAAAAAAAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gw5ek"]
+resource_name = "blockbench_export_mesh4"
+_surfaces = [{
+"aabb": AABB(-0.03125, 0, -0.0625, 0.0625, 0.0625, 0.125),
+"attribute_data": PackedByteArray("/6//X/+f/2f/n/9f/6//Z/+//3f/r/9v/7//b/+v/3f/F/8//x//L/8f/z//F/8v/1//P/9X/y//X/8v/1f/P/8f/0//F/9H/x//R/8X/0//F/+//w//x/8P/7//F//H"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_8wdxa"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA/7///wAA////v/////////+///8AAAAA/78AAAAA////vwAA//8AAP+/AAD//////78AAAAAAAD/vwAA//////+//////wAA/7//////////vwAA//8AAP+///8AAAAA/78AAAAA////v///AAD///+/AAAAAAAA/7///wAA//8AgAAA/////wCA////////AIAAAAAA//8AgAAA//8AAP////8AAAAA////////AAD//wAAAAAAAP///38AAP9/AAD/fwAA/38AAP9/////f////3////9///////9/////f////3////9/AAD/fwAA/38AAP9/AAD/f/9/////f////3////9/////f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_vdray")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ceohs"]
+_surfaces = [{
+"aabb": AABB(-0.046875, 0.0625, -0.046875, 0.09375, 0.1875, 0.09375),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAwAAAAIAAAAEAAEAAQAFAAMABAAFAAEAAwAGAAAABgAEAAAABQAGAAMABgAHAAQABAAHAAUABQAHAAYA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAD//wAA//8AAP///////wAAAAD/////AAD//wAAAAAAAAAAAAD//wAAAAD//wAAAAAAAAAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_akifb"]
+resource_name = "blockbench_export_mesh5"
+_surfaces = [{
+"aabb": AABB(-0.046875, 0.0625, -0.046875, 0.09375, 0.1875, 0.09375),
+"attribute_data": PackedByteArray("/0P/V/83/2//N/9X/0P/b/8L/48AAP93/wv/dwAA/4//p/9T/7P/R/+z/1P/p/9H/6P/s/+X/6f/o/+n/5f/s/9D/4//N/93/0P/d/83/4//I/+H/xf/n/8X/4f/I/+f"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_8wdxa"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA/7///wAA////v/////////+///8AAAAA/78AAAAA////vwAA//8AAP+/AAD//////78AAAAAAAD/vwAA//////+//////wAA/7//////////vwAA//8AAP+///8AAAAA/78AAAAA////v///AAD///+/AAAAAAAA/7///wAA//8AgAAA/////wCA////////AIAAAAAA//8AgAAA//8AAP////8AAAAA////////AAD//wAAAAAAAP///38AAP9/AAD/fwAA/38AAP9/////f////3////9///////9/////f////3////9/AAD/fwAA/38AAP9/AAD/f/9/////f////3////9/////f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ceohs")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_uk375"]
+_surfaces = [{
+"aabb": AABB(-0.036084376, 0.09375, -0.03125, 0.07216875, 0.5625, 0.0625),
+"format": 34896613377,
+"index_count": 72,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAAADAAQAAAAEAAUABQABAAAAAwAGAAQABQAEAAcABAAGAAcABQAHAAgACAABAAUABwAGAAkACAAHAAkACgAGAAMAAgAKAAMACQAGAAsACwAGAAoACAAJAAwADAAJAAsADAABAAgADQAKAAIADQALAAoAAgABAA0ADAALAA0ADQABAAwA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 14,
+"vertex_data": PackedByteArray("//8AAP9/AAD/fwAA/38AAP+/AAD//wAA//////9/AAD/v///AAAAAP+/AAAAAAAA/3////9/AAD/P///AAAAAP8/AAAAAAAAAAD///9/AAD/v/////8AAP8//////wAAAAAAAP9/AAD/PwAA//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qhcjq"]
+resource_name = "blockbench_export_mesh6"
+_surfaces = [{
+"aabb": AABB(-0.036084376, 0.09375, -0.03125, 0.07216875, 0.5625, 0.0625),
+"attribute_data": PackedByteArray("nlr/u/9V/7tOWP+3AAD/3/8D/5f/A//fAAD/l07A/2f/vf9jncL/Y05Y/7//Vf+7nlr/u/8v/9//M/+X/zP/3/8v/5edwv9j/73/Y07A/1+wU/+//1X/u05Y/7//Z//X/2v/j/9r/9f/Z/+PTsD/X/+9/2Owu/9fYVH/u/9V/7uwU/+//z//3/9D/5f/Q//f/z//l7C7/1//vf9jYLn/Y7BT/7f/Vf+7YVH/u/+H/9f/i/+P/4v/1/+H/49guf9j/73/Y7C7/2dOWP+3/1X/u7BT/7f/d//X/3v/j/97/9f/d/+PsLv/Z/+9/2NOwP9n"),
+"format": 34896613399,
+"index_count": 72,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUAAwAGAAQABwAIAAkACgALAAwADQAOAA8ADQAQAA4AEQASABMAFAAVABYAFwAYABkAFwAaABgAGwAcAB0AHgAfACAAIQAiACMAIQAkACIAJQAmACcAKAApACoAKwAsAC0AKwAuACwALwAwADEAMgAzADQANQA2ADcANQA4ADYAOQA6ADsA"),
+"material": SubResource("StandardMaterial3D_8wdxa"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 60,
+"vertex_data": PackedByteArray("//8AAP9//7//fwAA/3//v/+/AAD///+//78AAP//qqr//////3+qqv//AAD/f6qq/7//////qqr/v///////v/9/////f/+///////9//7//vwAAAAD/v/9/AAD/f/+///8AAP9//7///wAA/39U1f+///8AAFTV/78AAAAAVNX//////39U1f//////f/+//3////9//7//v///AAD/v/8/AAAAAP+//38AAP9//7//vwAAAAD/v/+/AAAAAP///z///wAA////PwAAAAD///+///8AAP///7///wAA/7//f////3//v/8///8AAP+/AAAAAP9//7//fwAA/3//v/8/AAAAAP+//z8AAAAAVNUAAP///39U1QAAAAD/f1TV/z///wAAVNX/P///AAD/v/9/////f/+/AAD///9//7//PwAA////v/9/AAD/f/+/AAAAAP9//78AAAAA/3+qqv8//////6qq/z8AAP//qqoAAP///3+qqgAA////f/+//3////9//7//P///////v/+/AAD///+//38AAP9//7//PwAA////v/8/AAD//wCA/7//////AID/vwAA//8AgP8//////wCA/z///////7//f////3//v/+///////+/AAD/fwAA/38AAP9//38AAP9/AAD/fwAA/38AAP///3////9/////fwAA/38AAP9/AAD/f/9/AAD/fwAA/38AAP9/AAD///9/////f////38AAP9/AAD/fwAA/3//f////3////9/////f///////f////3////9/AAD/fwAA/38AAP9//3////9/////f////3///////3////9/////fwAA/38AAP9/AAD/f/9/////f////3////9///////9/////f////38AAP9/AAD/fwAA/3//f////3////9/////f///////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_uk375")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6ub0k"]
+_surfaces = [{
+"aabb": AABB(-0.13077438, 0.03125, -0.13077438, 0.26154876, 0.03125, 0.26154876),
+"format": 34896613377,
+"index_count": 240,
+"index_data": PackedByteArray("AAABAAIAAgABAAAAAwABAAAAAAABAAMABAABAAIAAgABAAQABQADAAAAAwAGAAAABQAAAAcABwAAAAIABwAIAAUAAAAGAAkAAAAJAAIABwACAAoACgACAAQACgALAAcABwALAAgAAgAJAAwAAgAMAAQADQAJAAYACgANAAsADQAGAAsACwAGAA4ACwAOAAgAAwAOAAYADwAMAAkADwAJAA0AEAANAAoAEAAPAA0ACgAEABAAEQAMAA8AEgAPABAAEgARAA8AEAATABIAEAAEABMAFAARABIABAAMABUAEQAVAAwABAAVABMAFgAVABEAFAAWABEAFgAXABUAEwAVABcAEgAYABQAEgATABgAEwAXABgABAABABMAEwABAAQAEwABABgAGAABABMAGQAWABQAGgAXABYAGQAaABYAGgAbABcAGAAXABsAHAAaABkAFAAYAB0AFAAdABkAGAAbAB0AGAABAB0AHQABABgAHgAbABoAHAAeABoAHgAfABsAHQAbAB8ABQAeABwABQAIAB4ACAAfAB4ACAAOAB8AHAADAAUAIAAfAA4AHQAfACAAIAAOAAMAHAAgAAMAGQAgABwAGQAdACAAIAABAAMAAwABACAAIAABAB0AHQABACAA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 33,
+"vertex_data": PackedByteArray("WPoAAKyyAAD/f8vM/38AAKyyAABY+gAAWPoAAFJNAABSTQAAWPoAAP//AAD6SgAAWPr//6yyAAD//wAABLUAAP/////6SgAArLL//1j6AAAEtQAA//8AAP////8EtQAAUk3//1j6AAAEtf////8AAFj6//9STQAA+kr/////AAD6SgAA//8AAAAA//8EtQAAAAAAAAS1AACmBQAArLIAAAAAAAD6SgAApgX//6yyAAAAAP//+koAAKYF//9STQAApgUAAFJNAAD6SgAAAAAAAPpK//8AAAAAUk3//6YFAAAEtQAAAAAAAFJNAACmBQAABLX//wAAAACssv//pgUAAKyyAACmBQAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_t6qb3"]
+resource_name = "blockbench_export_mesh7"
+_surfaces = [{
+"aabb": AABB(-0.13077438, 0.03125, -0.13077438, 0.26154876, 0.03125, 0.26154876),
+"attribute_data": PackedByteArray("IEq/NP850jugQIEr/8f/c//T/2//0/9z/8f/b2oh/1fuKOxncBjAYf9JIkKuOYE7/0ngNP+//0P/y/8//8v/Q/+//z9wGMBh7ijsZ84Y/259QP9LUDqBOz5KBUP/x/+D/9P/f//T/4P/x/9/zhj/bu4o7GdOIj14PTOiS1A6gTt9QP9L/8f/E//T/w//0/8T/8f/D04iPXjuKOxnjy89eP8pIkJQOoE7PTOiS/8P/9P/G//P/xv/0/8P/89qcf8v7njsP3BowDn/KeA0UDqBO/8pIkL/v/9T/8v/T//L/1P/v/9PcGjAOe547D/NaABHXzOBKzk6ujv/KeA0/8f/k//T/4//0/+T/8f/j81oAEfueOw/TXI9UKBAgSv/OdI7XzOBK//H/wP/0wAA/9P/A//HAABNcj1Q7njsP45/PVD/x/+j/9P/n//T/6P/x/+f/8f/I//T/x//0/8j/8f/H//H/7P/0/+v/9P/s//H/6//r//D/7v/v/+7/8P/r/+//8//M//b/y//2/8z/8//L/9P/8v/W//H/1v/y/9P/8f/x//D/9P/v//T/8P/x/+//5f/w/+j/7//o//D/5f/v0IpkjT/KSJCQilwQv8p4DRCAc4J/wFdF0IBrBf/ARwKEDPEKv8p4DRCKZI0XzOBK0IBrBdfC70gEAt6If8BXRfuQMQqXzOBKxAzxCqgQIErEAt6IaAYvSDuGHohXwu9ILxKkjSgQIEr7kDEKv9J4DTuGHoh/yFdF70irBegGL0gvEpwQv9J4DS8SpI0/0kiQr0irBf/IRwKvSLOCf8hXRfugP+D/4niebyKMXqggEKDvSLOCaAYvQDuGAAA/yEcChBz/4OggEKD7oD/g15zQoPuGAAAXwu9ABALAACgGL0AQmkxel5zQoMQc/+D/2nieRALAAD/ARwKQgHOCV8LvQA="),
+"format": 34896613399,
+"index_count": 240,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUAAwAGAAQABwAIAAkACgALAAwADQAOAA8ADQAQAA4AEQASABMAFAAVABYAFwAYABkAFwAaABgAGwAcAB0AHgAfACAAIQAiACMAIQAkACIAJQAmACcAKAApACoAKwAsAC0AKwAuACwALwAwADEAMgAzADQANQA2ADcANQA4ADYAOQA6ADsAPAA9AD4APwBAAEEAPwBCAEAAQwBEAEUARgBHAEgASQBKAEsASQBMAEoATQBOAE8AUABRAFIAUABTAFEAVABVAFYAVABXAFUAWABZAFoAWABbAFkAXABdAF4AXABfAF0AYABhAGIAYABjAGEAZABlAGYAZABnAGUAaABpAGoAaABrAGkAbABtAG4AbABvAG0AcABxAHIAcABzAHEAdAB1AHYAdAB3AHUAeAB5AHoAeAB7AHkAfAB9AH4AfAB/AH0AgACBAIIAgACDAIEAhACFAIYAhACHAIUAiACJAIoAiACLAIkAjACNAI4AjACPAI0AkACRAJIAkACTAJEAlACVAJYAlACXAJUAmACZAJoAmACbAJkAnACdAJ4AnACfAJ0AoAChAKIAoACjAKEApAClAKYApACnAKUAqACpAKoAqACrAKkArACtAK4ArACvAK0A"),
+"material": SubResource("StandardMaterial3D_8wdxa"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 176,
+"vertex_data": PackedByteArray("WPoAAKyy58X/f8vM/3/nxayyAABY+ufFBLUAAP///5//////BLX/n///AAAEtf+fBLX//////5+ssgAAWPq1+v9/y8z/f7X6WPoAAKyytfpY+gAAUk1kwP9/y8z/f2TAWPoAAKyyZMD//wAABLX/v//////6Sv+///8AAPpK/7//////BLX/v1j6AACssoX5/3/LzP9/hflY+gAAUk2F+ayyAACmBWy6/3/LzP9/bLpY+gAAUk1suv//AAD6Sv/fBLX//wAA/98EtQAAAAD/3//////6Sv/fWPoAAFJNnPv/f8vM/3+c+6yyAACmBZz7Uk0AAKYF9rf/f8vM/3/2t6yyAACmBfa3BLUAAAAA///6Sv//AAD///pKAAAAAP//BLX//wAA//+ssgAApgX///9/y8z/f///Uk0AAKYF//+mBQAAUk2Suv9/y8z/f5K6Uk0AAKYFkrr6SgAAAAD/3wAA///6Sv/fAAAAAPpK/9/6Sv//AAD/31JNAACmBcXF/3/LzP9/xcWmBQAAUk3FxaYFAACssmTA/3/LzP9/ZMCmBQAAUk1kwAAAAAD6Sv+/AAD//wS1/78AAAAABLX/vwAA///6Sv+/pgUAAFJNSsD/f8vM/39KwKYFAACsskrAUk0AAFj63cX/f8vM/3/dxaYFAACsst3FAAAAAAS1/5/6Sv//////n/pKAAD///+fAAD//wS1/5+mBQAArLJ9uv9/y8z/f326Uk0AAFj6fbqssgAAWPoKyP9/y8z/fwrIUk0AAFj6Csj6SgAA//8AgAS1/////wCABLUAAP//AID6Sv////8AgFJNAABY+vS3/3/LzP9/9LessgAAWPr0t1j6AACssv/frLL//1j6/9+ssgAAWPr/31j6//+ssv/frLIAAFj6//9STf//WPr//1JNAABY+v//rLL//1j6//9STQAAWPr/36YF//+ssv/fpgUAAKyy/99STf//WPr/36YFAACssv+/pgX//1JN/7+mBQAAUk3/v6YF//+ssv+/pgUAAFJN/59STf//pgX/n1JNAACmBf+fpgX//1JN/59STQAApgUAgKyy//+mBQCArLIAAKYFAIBSTf//pgUAgKyyAACmBf+fWPr//1JN/59Y+gAAUk3/n6yy//+mBf+fWPoAAFJN/79Y+v//rLL/v1j6AACssv+/WPr//1JN/78AAAAABLX/v6YFAABSTf+/AAAAAPpK/7+mBQAArLL/vwAA///6Sv+/pgX//6yy/78AAP//BLX/v6YF//9STf+/+koAAP///7+mBQAArLL/vwAAAAAEtf+/Uk0AAFj6/78AAP//BLX/v1JN//9Y+v+/+kr//////7+mBf//rLL/vwS1AAD///+/Uk0AAFj6/7/6SgAA////v6yyAABY+v+/+kr//////7+ssv//WPr/vwS1//////+/Uk3//1j6/7///wAABLX/v6yyAABY+v+/BLUAAP///79Y+gAArLL/vwS1//////+/WPr//6yy/7//////BLX/v6yy//9Y+v+///8AAPpK/79Y+gAArLL/v///AAAEtf+/WPoAAFJN/7//////BLX/v1j6//9STf+///////pK/79Y+v//rLL/vwS1AAAAAP+/WPoAAFJN/7///wAA+kr/v6yyAACmBf+///////pK/7+ssv//pgX/vwS1//8AAP+/WPr//1JN/7/6SgAAAAD/v6yyAACmBf+/BLUAAAAA/79STQAApgX/vwS1//8AAP+/Uk3//6YF/7/6Sv//AAD/v6yy//+mBf+/AAAAAPpK/79STQAApgX/v/pKAAAAAP+/pgUAAFJN/7/6Sv//AAD/v6YF//9STf+/AAD///pK/79STf//pgX/v7cOoIa3DqCGtw6ghv9/AAD/fwAA/38AAP9/AAAiOisDIjorAyI6KwMoFZOKKBWTiigVk4r/fwAA/38AAP9/AAD/fwAAdz07BXc9OwV3PTsFeBC4ingQuIp4ELiK/38AAP9/AAD/fwAA/38AAG5C4gNuQuIDbkLiA7YBzIO2AcyDtgHMg/9/////f////3////9/////f1XG/39Vxv9/VcaZBydvmQcnb5kHJ2//f////3////9/////f///QvYZj0L2GY9C9hmPlArWapQK1mqUCtZq/3////9/////f////3///+3zLpXt8y6V7fMulWcHL3FnBy9xZwcvcf9/////f////3////9////X9qeQ1/ankNf2p5AAAP9/AAD/fwAA/3//f////3////9/////f///////f////3////9//3////9/////f////3////9/////f////3////9/////fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/f////3////9/////f////3////9/////f////3////9/////f////3////9///8EAAiACgD6fwsA+X8EAAiA+v/2f/X/BID1/wSA+v/2fwAAAIAEAAiABAAIgAAAAID1/wSA/f8AgP3/AID1/wSAAQD+fwAAAIAAAACAAQD+f/3/AID+//5//v/+f/3/AIAIAPt/AQD+fwEA/n8IAPt//v/+f/r/9X/6//Z//v/+fwUACoAIAPt/CAD7fwUAC4D6//Z/9v8DgPb/A4D6//V/AAAAgAMABoADAAaAAAAAgPb/A4D9/wCA/f8AgPb/A4ABAP5/AAAAgAAAAIABAP5//f8AgP7//n/+//5//f8AgAYA/H8BAP5/AQD+fwcA+3/+//5/+v/2f/r/9n/+//5/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_6ub0k")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_tv8bq"]
+_surfaces = [{
+"aabb": AABB(-0.00625, 0.078125, -0.00625, 0.0125, 0.034374997, 0.0125),
+"format": 34896613377,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAAADAAQAAAAEAAUABQABAAAAAwAGAAQABQAEAAcABAAGAAcABQAHAAgACAABAAUACAAHAAkABwAGAAkACAAJAAoACgABAAgACgAJAAsACQAGAAsADAABAAoACgALAAwACwAGAA0ADAALAA0ADgAGAAMAAgAOAAMADQAGAA8ADwAGAA4ADAANABAAEAANAA8AEAABAAwAEQAOAAIAEQAPAA4AAgABABEAEAAPABEAEQABABAA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("//8AAAO1AAD/fwAA/38AAAO1AAD//wAA//+56AO1AAD//7no+0oAAP//AAD7SgAA/3////9/AAADtbnoAAAAAAO1AAAAAAAA+0q56AAAAAD7SgAAAAAAAAAAuej7SgAAAAAAAPtKAAAAALnoA7UAAAO1uej//wAA+0q56P//AAAAAAAAA7UAAPtKAAD//wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gka2s"]
+resource_name = "blockbench_export_mesh8"
+_surfaces = [{
+"aabb": AABB(-0.00625, 0.078125, -0.00625, 0.0125, 0.034374997, 0.0125),
+"attribute_data": PackedByteArray("y+Ldov/hMqNT4mWi/0//2/9T/9f/U//b/0//11RC5Oj/Qf/n1UJ16Mvih6P/4TKjy+Ldov8f/8P/I/+//yP/w/8f/78Qwf/f/8Ew4CnBpuBT4v+j/+Eyo8vih6P/t//T/7v/z/+7/9P/t//PKcGm4P/BMOCqwRXhquH/o//hMqNT4v+j/6f/0/+r/8//q//T/6f/z6rBFeH/wTDgVMIV4TLhh6P/4TKjquH/o//H/9P/y//P/8v/0//H/89UwhXh/8Ew4NTCpuAy4d2i/+EyozLhh6P/z/9j/9P/X//T/2P/z/9f1MKm4P/BMODuwv/fquFlov/hMqMy4d2i/9f/Q//b/z//2/9D/9f/PypBdej/Qf/nqkHk6FPiZaL/4TKjquFlov+X/9P/m//P/5v/0/+X/8+qQeTo/0H/51RC5Og="),
+"format": 34896613399,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUAAwAGAAQABwAIAAkACgALAAwADQAOAA8ADQAQAA4AEQASABMAFAAVABYAFwAYABkAFwAaABgAGwAcAB0AHgAfACAAIQAiACMAIQAkACIAJQAmACcAKAApACoAKwAsAC0AKwAuACwALwAwADEAMgAzADQANQA2ADcANQA4ADYAOQA6ADsAPAA9AD4APwBAAEEAPwBCAEAAQwBEAEUARgBHAEgASQBKAEsASQBMAEoATQBOAE8A"),
+"material": SubResource("StandardMaterial3D_8wdxa"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 80,
+"vertex_data": PackedByteArray("//8AAAO1/7//fwAA/3//vwO1AAD///+/A7UAAP///5///7noA7X/n///AAADtf+fA7W56P///58Dtbno//9+s/9/////f36z//+56AO1frP//wAA+0r/v/9/AAD/f/+///8AAAO1/7///wAAA7X/v///uej7Sv+///8AAPtK/7///7noA7X/v///uegDtWTu/3////9/ZO7//7no+0pk7gO1AAAAAP+//38AAP9//7///wAA+0r/v///AAD7Sv/fA7W56AAA/98DtQAAAAD/3///uej7Sv/f//+56PtK0/T/f////3/T9AO1uegAANP0+0oAAAAA/7//fwAA/3//vwO1AAAAAP+/A7UAAAAA///7SrnoAAD///tKAAAAAP//A7W56AAA//8DtbnoAAD///9/////f///+0q56AAA//8AAAAA+0r/v/9/AAD/f/+/+0oAAAAA/7/7SgAAAAD/3wAAuej7Sv/fAAAAAPtK/9/7SrnoAAD/3/tKuegAANP0/3////9/0/QAALno+0rT9AAAAAADtf+//38AAP9//78AAAAA+0r/vwAAAAD7Sv+/AAC56AO1/78AAAAAA7X/vwAAuej7Sv+/AAC56PtKZO7/f////39k7gAAuegDtWTu+0oAAP///7//fwAA/3//vwAAAAADtf+/AAAAAAO1/5/7Srno////n/tKAAD///+fAAC56AO1/58AALnoA7V+s/9/////f36z+0q56P//frMDtQAA////v/9/AAD/f/+/+0oAAP///7/7SgAA//8AgAO1uej//wCAA7UAAP//AID7Srno//8AgPtKuej//xut/3////9/G60Dtbno//8brQIAA4AAAP9/AgADgP9/AAD/fwAA/38AAP9/AAAw3NZpMNzWaTDc1mkEAP1/AAD/fwIAA4D/fwAA/38AAP9/AAD/fwAAVDx4CVQ8eAlUPHgJBAD9fwAA/38EAP1//38AAP9/AAD/fwAA/38AAMJGYQfCRmEHwkZhBwIAA4AAAP9/BAD9f/9/////f////3////9/////fxrP/38az/9/Gs8CAAOAAAD/fwIAA4D/f////3////9/////f///nnjCxp54wsaeeMLGBAD9fwAA/38CAAOA/3////9/////f////3///4d2VLyHdlS8h3ZUvAQA/X8AAP9/BAD9f/9/////f////3////9////V6c6j1enOo9XpzqMCAAOAAAD/fwQA/X//f////3////9/////f///////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_tv8bq")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ttnuv"]
+_surfaces = [{
+"aabb": AABB(-0.00625, -0.05625, -0.00625, 0.0125, 0.0484375, 0.0125),
+"format": 34896613377,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAAADAAQAAAAEAAUABQABAAAAAwAGAAQABQAEAAcABAAGAAcABQAHAAgACAABAAUACAAHAAkABwAGAAkACAAJAAoACgABAAgACgAJAAsACQAGAAsADAABAAoACgALAAwACwAGAA0ADAALAA0ADgAGAAMAAgAOAAMADQAGAA8ADwAGAA4ADAANABAAEAANAA8AEAABAAwAEQAOAAIAEQAPAA4AAgABABEAEAAPABEAEQABABAA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("///GGAO1AAD/fwAA/38AAAO1xhj//wAA///56gO1AAD///nq+0oAAP//xhj7SgAA/3////9/AAADtfnqAAAAAAO1xhgAAAAA+0r56gAAAAD7SsYYAAAAAAAA+er7SgAAAADGGPtKAAAAAPnqA7UAAAO1+er//wAA+0r56v//AAAAAMYYA7UAAPtKxhj//wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ce4u2"]
+resource_name = "blockbench_export_mesh9"
+_surfaces = [{
+"aabb": AABB(-0.00625, -0.05625, -0.00625, 0.0125, 0.0484375, 0.0125),
+"attribute_data": PackedByteArray("2+Jkw//h/8NT4v/C/1//4/9j/9//Y//j/1//31Qy8ej/Mf/n2TKI6FPq/0L/6f9Dqun/Qv/X/1P/2/9P/9v/U//X/0//sP/f/7Eb4CWxpOCq0f/i/9H/4yLRZOP/3/8T/+P/D//j/xP/3/8PJbGk4P+xG+CqsQ3hU9L/4v/R/+Oq0f/i/9//A//jAAD/4/8D/98AAKqxDeH/sRvgVLIN4dzSZOP/0f/jU9L/4v8f/+P/I//f/yP/4/8f/99Usg3h/7Eb4NiypOBUUv/q/1H/66pR/+r/1//T/9v/z//b/9P/1//P2LKk4P+xG+D+sv/fquH/wv/h/8Mi4WTD/9//I//j/x//4/8j/9//HyYxiOj/Mf/nqzHx6FPi/8L/4f/DquH/wv8P/+P/E//f/xP/4/8P/9+rMfHo/zH/51Qy8eg="),
+"format": 34896613399,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUAAwAGAAQABwAIAAkACgALAAwADQAOAA8ADQAQAA4AEQASABMAFAAVABYAFwAYABkAFwAaABgAGwAcAB0AHgAfACAAIQAiACMAIQAkACIAJQAmACcAKAApACoAKwAsAC0AKwAuACwALwAwADEAMgAzADQANQA2ADcANQA4ADYAOQA6ADsAPAA9AD4APwBAAEEAPwBCAEAAQwBEAEUARgBHAEgASQBKAEsASQBMAEoATQBOAE8A"),
+"material": SubResource("StandardMaterial3D_8wdxa"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 80,
+"vertex_data": PackedByteArray("///GGAO1/q7/fwAA/3/+rgO1xhj///6uA7XGGP///5////nqA7X/n///xhgDtf+fA7X56v///58Dtfnq///ksP9/////f+Sw///56gO15LD//8YY+0ozyP9/AAD/fzPI///GGAO1M8j//8YYA7X/v///+er7Sv+////GGPtK/7////nqA7X/v///+eoDtXTp/3////9/dOn///nq+0p06QO1xhgAAP/v/38AAP9//+///8YY+0r/7///xhj7Sv/fA7X56gAA/98DtcYYAAD/3///+er7Sv/f///56vtKEfL/f////38R8gO1+eoAABHy+0rGGAAA////fwAA/3///wO1xhgAAP//A7XGGAAA///7SvnqAAD///tKxhgAAP//A7X56gAA//8DtfnqAAD///9/////f///+0r56gAA//8AAMYY+0r/7/9/AAD/f//v+0rGGAAA/+/7SsYYAAD/3wAA+er7Sv/fAADGGPtK/9/7SvnqAAD/3/tK+eoAABHy/3////9/EfIAAPnq+0oR8gAAxhgDtTPI/38AAP9/M8gAAMYY+0ozyAAAxhj7Sv+/AAD56gO1/78AAMYYA7X/vwAA+er7Sv+/AAD56vtKdOn/f////3906QAA+eoDtXTp+0rGGP///q7/fwAA/3/+rgAAxhgDtf6uAADGGAO1/5/7Svnq////n/tKxhj///+fAAD56gO1/58AAPnqA7XksP9/////f+Sw+0r56v//5LADtcYY///Hpf9/AAD/f8el+0rGGP//x6X7SsYY//8AgAO1+er//wCAA7XGGP//AID7Svnq//8AgPtK+er//+eo/3////9/56gDtfnq///nqIUfwlCFH8JQhR/CUP9/AAD/fwAA/38AAP9/AACH1ZBkh9WQZIfVkGT/X/8//1//P/9f/z//fwAA/38AAP9/AAD/fwAAujxvCro8bwq6PG8Kq4g+NauIPjWriD41/38AAP9/AAD/fwAA/38AAOlIPAjpSDwI6Ug8CKqq//+qqv//qqr///9/////f////3////9/////f6LS/3+i0v9/otI+tVL3PrVS9z61Uvf/f////3////9/////f///w3fpyMN36cjDd+nI/z//3/8//9//P//f/3////9/////f////3///5B1ubyQdbm8kHW5vDwvhJ88L4SfPC+En/9/////f////3////9///+P5Heqj+R3qo/kd6oAAP9/AAD/fwAA/3//f////3////9/////f///////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ttnuv")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_n34gw"]
+_surfaces = [{
+"aabb": AABB(-0.00625, 0.06875, -0.00625, 0.0125, 0.0484375, 0.0125),
+"format": 34896613377,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAAADAAQAAAAEAAUABQABAAAAAwAGAAQABQAEAAcABAAGAAcABQAHAAgACAABAAUACAAHAAkABwAGAAkACAAJAAoACgABAAgACgAJAAsACQAGAAsADAABAAoACgALAAwACwAGAA0ADAALAA0ADgAGAAMAAgAOAAMADQAGAA8ADwAGAA4ADAANABAAEAANAA8AEAABAAwAEQAOAAIAEQAPAA4AAgABABEAEAAPABEAEQABABAA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("///GGAO1AAD/fwAA/38AAAO1xhj//wAA///56gO1AAD///nq+0oAAP//xhj7SgAA/3////9/AAADtfnqAAAAAAO1xhgAAAAA+0r56gAAAAD7SsYYAAAAAAAA+er7SgAAAADGGPtKAAAAAPnqA7UAAAO1+er//wAA+0r56v//AAAAAMYYA7UAAPtKxhj//wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6r5am"]
+resource_name = "blockbench_export_mesh10"
+_surfaces = [{
+"aabb": AABB(-0.00625, 0.06875, -0.00625, 0.0125, 0.0484375, 0.0125),
+"attribute_data": PackedByteArray("3AJk6/8B/+tUAv/q/9//k//j/4//4/+T/9//j1Pq8jD/6f8v2OqIMFPq/9L/6f/Tqun/0v/f/2P/4/9f/+P/Y//f/1//4P+v/+EbsCXhpLCq4f/i/+H/4yLhZOP/3/+D/+P/f//j/4P/3/9/JeGksP/hG7Cq4Q6xU+L/4v/h/+Oq4f/i/3//4/+D/9//g//j/3//36rhDrH/4RuwU+IOsdviZOP/4f/jU+L/4v+f/+P/o//f/6P/4/+f/99T4g6x/+EbsNjipLBT6v9S/+n/U6rp/1L/b//j/3P/3/9z/+P/b//f2OKksP/hG7D+4v+vqwH/6v8B/+sjAWTr/4//4/+T/9//k//j/4//3yXpiDD/6f8vqunyMFQC/+r/Af/rqwH/6v/f/3P/4/9v/+P/c//f/2+q6fIw/+n/L1Pq8jA="),
+"format": 34896613399,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUAAwAGAAQABwAIAAkACgALAAwADQAOAA8ADQAQAA4AEQASABMAFAAVABYAFwAYABkAFwAaABgAGwAcAB0AHgAfACAAIQAiACMAIQAkACIAJQAmACcAKAApACoAKwAsAC0AKwAuACwALwAwADEAMgAzADQANQA2ADcANQA4ADYAOQA6ADsAPAA9AD4APwBAAEEAPwBCAEAAQwBEAEUARgBHAEgASQBKAEsASQBMAEoATQBOAE8A"),
+"material": SubResource("StandardMaterial3D_8wdxa"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 80,
+"vertex_data": PackedByteArray("///GGAO1/q7/fwAA/3/+rgO1xhj///6uA7XGGP///5////nqA7X/n///xhgDtf+fA7X56v///58Dtfnq///ksP9/////f+Sw///56gO15LD//8YY+0ozyP9/AAD/fzPI///GGAO1M8j//8YYA7X/v///+er7Sv+////GGPtK/7////nqA7X/v///+eoDtXTp/3////9/dOn///nq+0p06QO1xhgAAP/v/38AAP9//+///8YY+0r/7///xhj7Sv/fA7X56gAA/98DtcYYAAD/3///+er7Sv/f///56vtKEfL/f////38R8gO1+eoAABHy+0rGGAAA////fwAA/3///wO1xhgAAP//A7XGGAAA///7SvnqAAD///tKxhgAAP//A7X56gAA//8DtfnqAAD///9/////f///+0r56gAA//8AAMYY+0r/7/9/AAD/f//v+0rGGAAA/+/7SsYYAAD/3wAA+er7Sv/fAADGGPtK/9/7SvnqAAD/3/tK+eoAABHy/3////9/EfIAAPnq+0oR8gAAxhgDtTPI/38AAP9/M8gAAMYY+0ozyAAAxhj7Sv+/AAD56gO1/78AAMYYA7X/vwAA+er7Sv+/AAD56vtKdOn/f////3906QAA+eoDtXTp+0rGGP///q7/fwAA/3/+rgAAxhgDtf6uAADGGAO1/5/7Svnq////n/tKxhj///+fAAD56gO1/58AAPnqA7XksP9/////f+Sw+0r56v//5LADtcYY///Hpf9/AAD/f8el+0rGGP//x6X7SsYY//8AgAO1+er//wCAA7XGGP//AID7Svnq//8AgPtK+er//+eo/3////9/56gDtfnq///nqIUfwlCFH8JQhR/CUP9/AAD/fwAA/38AAP9/AACH1ZBkh9WQZIfVkGT/X/8//1//P/9f/z//fwAA/38AAP9/AAD/fwAAujxvCro8bwq6PG8Kq4g+NauIPjWriD41/38AAP9/AAD/fwAA/38AAOlIPAjpSDwI6Ug8CKqq//+qqv//qqr///9/////f////3////9/////f6LS/3+i0v9/otI+tVL3PrVS9z61Uvf/f////3////9/////f///w3fpyMN36cjDd+nI/z//3/8//9//P//f/3////9/////f////3///5B1ubyQdbm8kHW5vDwvhJ88L4SfPC+En/9/////f////3////9///+P5Heqj+R3qo/kd6oAAP9/AAD/fwAA/3//f////3////9/////f///////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_n34gw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i3n23"]
+resource_name = "material_0"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("7_1b2qk")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5d77d"]
+_surfaces = [{
+"aabb": AABB(-0.025, 0, -0.0875, 0.05, 0.10625, 0.3125),
+"format": 34896613377,
+"index_count": 108,
+"index_data": PackedByteArray("DAANAA4AAQAOAA0AAQACAA4AAwABAA0AAwACAAEAAwAEAAIAAwANAA8ABAADAA8AAgAEABAAAgAQAA4ABAAPABAABQAPAA0ADAAFAA0ABgAQAA8ABQAGAA8AEQAOABAAEQAMAA4ABgARABAACQAFAAwACAAGAAUACAAFAAkAEgAGAAgAEgARAAYAEwAMABEAEwARABIACQAMABMABwASAAgACwAJABMAAAATABIACwATAAAAAAASAAcACgAJAAsAAAAKAAsACgAIAAkAAAAHAAoABwAIAAoA"),
+"lods": [0.03524225, PackedByteArray("AAABAAIAAwACAAEAAwAEAAIABQADAAEAAAAFAAEABgAEAAMABQAGAAMABwACAAQABgAHAAQABwAAAAIACAAGAAUABwAGAAgACQAFAAAACAAFAAkABwAIAAoAAAAHAAoACgAIAAkACwAJAAAACgAJAAsAAAAKAAsA")],
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("//8AAP//AAD/3/DwAAAAAP/fijUAAAAA/x/w8AAAAAD/H4o1AAAAAP////9bjwAAAAD//1uPAAAAAAAA//8AAAAAZbuOwgAA//9lu47CAAAAAGW7//8AAP//Zbv//wAA//+KNVuPAAD/////ehQAAP//ijV6FAAAAAD//3oUAAAAAIo1ehQAAAAAijVbjwAAAACKNY7CAAD//4o1jsIAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rcekk"]
+resource_name = "blockbench_export_mesh"
+_surfaces = [{
+"aabb": AABB(-0.025, 0, -0.0875, 0.05, 0.10625, 0.3125),
+"attribute_data": PackedByteArray("8wGZDQwqzAAMKsEKjBMAAIwLpQPzAaUDchj/F/MBwSLzAcwYDCqZJXIgpBsMKqQbMwd/RpkB/y9mBv8vzAB/RswQljNmFv9bmRH/WzMXljP/f/8H/3cAAP9/AAD/d/8H/4P/f/9//4f/f/9//4P/h8wASU8zB39GMwdJT8wAf0bMAONYMwdJTzMH41jMAElPjBPBCsAmAADAJsEKPwXBIj8F/xdyGMEizABMMzMHTDPMEJlFMxfMWMwQzFgzF5lFjBPBCowLwQqMEwAAciDBInIY/xdyGMEiMxeZPcwQmUXMEJk9MxeZRYwLwQqMC6UDciCkG3IgwSLMEJk9MxeZPcAmwQrAJgAAzBDMWDMXzFg/Bf8XPwXBIjMHTDPMAEwz"),
+"format": 34896613399,
+"index_count": 108,
+"index_data": PackedByteArray("JAAlACYAJAADACUABgAnACgABgApACcADAAqACsADAAPACoALAAtAC4ALAAvAC0AFAAVABYAFAAXABUAGAAZABoAGAAbABkABAAwADEABAAyADAAHAAdAB4AHAAfAB0AMwA0AAoAMwA1ADQANgA3ADgANgA5ADcABQA6AAAABQA7ADoAIAAhACIAIAAjACEACQA8AAsACQA9ADwAEwA+ABAAEwA/AD4AAQBAAEEAAQACAEAAEQBCAEMAEQASAEIABwBEAEUABwAIAEQADQBGAEcADQAOAEYA"),
+"lods": [0.03524225, PackedByteArray("AAABAAIAAAADAAEABAADAAAABQAEAAAABgAHAAgABgAJAAcACQAGAAoACQAKAAsADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEA")],
+"material": SubResource("StandardMaterial3D_i3n23"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("//8AAP///7//3/DwAAD6yf/fijUAAPrJ/////1uP/7///2W7jsL/v///Zbv///+/AAD//1uP/7//H4o1AAD6yf8f8PAAAPrJAAAAAP///78AAGW7jsL/vwAAZbv///+//////1uP/7//H/DwAAD6yf/f8PAAAPrJAAD//1uP/78AAAAA//+7y//fijUAAP+//x+KNQAA/7///wAA//+7y///AAD//wCAAABlu///AID//2W7//8AgAAAAAD//wCA/x/w8AAA////34o1AAD////f8PAAAP///x+KNQAA//8AAGW7jsKUrv////9bj5Su//9lu47ClK4AAP//W4+UrgAAZbv///+///9lu47C/7///2W7////vwAAZbuOwv+///+KNVuP/7//////ehT/v///ijV6FP+/AACKNXoU/78AAP//ehT/vwAAijVbj/+/AAD//3oU/7//////ehT/vwAAijVbj/+///+KNXoU/78AAIo1ehT/v///ijVbj/+///+KNVuP/7///4o1jsL/v/////9bj/+/AACKNY7C/78AAP//W4//vwAAijVbj/+///+KNY7C/78AAIo1W4//vwAAijWOwv+///+KNVuP/7///4o1jsL/v///ZbuOwv+/AABlu47C/78AAIo1jsL/vwAAijWOwrvL//+KNY7Cu8v//4o1ehT6yf////96FPrJAACKNXoU/7///4o1ehT/vwAA//96FPrJAACKNXoU+sn/////ehT6yQAA//96FPrJAIABAP9/AAD/fwAA/38AAP9/AAD/fwAAAID+//9//v//f/7/AID+/wGA/f//f///////f////3////9/////fwAA/38AAP9/AAD/fwAA/3//f////3////9/////f////3////9/////f////3///////3////9/////f////3////9/////f////3////9//38AAP9/AAD/fwAA/3////9/////f///////f////38AAP9/AAD/fwAA/38AAP9//38AAP9/AAD/fwAAAYD+/wCA/v//f///AAD/fwAA/38AAP9/AAD/f/9/AAD/fwAAAYD9/wGA/v8AAP9/AAD/f/9/AAD/fwAAAAD/fwAA/3//f/7//3///////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_5d77d")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_63i46"]
+_surfaces = [{
+"aabb": AABB(-0.01875, 0.04375, -0.0625, 0.0375, 0.037499998, 0.125),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAwAAAAIAAAAEAAEAAQAFAAMABAAFAAEAAwAGAAAABgAEAAAABQAGAAMABgAHAAQABAAHAAUABQAHAAYA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAD//wAA//8AAP///////wAAAAD/////AAD//wAAAAAAAAAAAAD//wAAAAD//wAAAAAAAAAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_y1myv"]
+resource_name = "blockbench_export_mesh2"
+_surfaces = [{
+"aabb": AABB(-0.01875, 0.04375, -0.0625, 0.0375, 0.037499998, 0.125),
+"attribute_data": PackedByteArray("/4f/D/93/xP/d/8P/4f/E/+H/yP/d/8f/4f/H/93/yP/f/9f/4P/T/+D/1//f/9P/4P/d/9//2f/g/9n/3//d/9D/5P/P/+P/0P/j/8//5P/k/8//4//Q/+P/z//k/9D"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_i3n23"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA/7///wAA////v/////////+///8AAAAA/78AAAAA////vwAA//8AAP+/AAD//////78AAAAAAAD/vwAA//////+//////wAA/7//////////vwAA//8AAP+///8AAAAA/78AAAAA////v///AAD///+/AAAAAAAA/7///wAA//8AgAAA/////wCA////////AIAAAAAA//8AgAAA//8AAP////8AAAAA////////AAD//wAAAAAAAP///38AAP9/AAD/fwAA/38AAP9/////f////3////9///////9/////f////3////9/AAD/fwAA/38AAP9/AAD/f/9/////f////3////9/////f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_63i46")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_62is2"]
+_surfaces = [{
+"aabb": AABB(-0.01875, 0.059375, -0.075, 0.0375, 0.0062499978, 0.15),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAwAAAAIAAAAEAAEAAQAFAAMABAAFAAEAAwAGAAAABgAEAAAABQAGAAMABgAHAAQABAAHAAUABQAHAAYA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAD//wAA//8AAP///////wAAAAD/////AAD//wAAAAAAAAAAAAD//wAAAAD//wAAAAAAAAAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vc5e5"]
+resource_name = "blockbench_export_mesh3"
+_surfaces = [{
+"aabb": AABB(-0.01875, 0.059375, -0.075, 0.0375, 0.0062499978, 0.15),
+"attribute_data": PackedByteArray("/4P/L/9v/zP/b/8v/4P/M/+D/0P/b/8//4P/P/9v/0P/b/9j/3P/T/9z/2P/b/9P/3P/g/9v/2//c/9v/2//g/+L/wP/hwAA/4sAAP+H/wP/k/8P/4//E/+P/w//k/8T"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_i3n23"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA/7///wAA////v/////////+///8AAAAA/78AAAAA////vwAA//8AAP+/AAD//////78AAAAAAAD/vwAA//////+//////wAA/7//////////vwAA//8AAP+///8AAAAA/78AAAAA////v///AAD///+/AAAAAAAA/7///wAA//8AgAAA/////wCA////////AIAAAAAA//8AgAAA//8AAP////8AAAAA////////AAD//wAAAAAAAP///38AAP9/AAD/fwAA/38AAP9/////f////3////9///////9/////f////3////9/AAD/fwAA/38AAP9/AAD/f/9/////f////3////9/////f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_62is2")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_c50k5"]
+_surfaces = [{
+"aabb": AABB(-0.0125, 0.05, -0.0125, 0.025, 0.025000002, 0.025),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAwAAAAIAAAAEAAEAAQAFAAMABAAFAAEAAwAGAAAABgAEAAAABQAGAAMABgAHAAQABAAHAAUABQAHAAYA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAD//wAA//8AAP///////wAAAAD/////AAD//wAAAAAAAAAAAAD//wAAAAD//wAAAAAAAAAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_d00ig"]
+resource_name = "blockbench_export_mesh4"
+_surfaces = [{
+"aabb": AABB(-0.0125, 0.05, -0.0125, 0.025, 0.025000002, 0.025),
+"attribute_data": PackedByteArray("/6P/P/+f/0P/n/8//6P/Q/9T/6P/T/+f/1P/n/9P/6P/n/9T/6P/T/+j/1P/n/9P/2P/o/9f/5//Y/+f/1//o/+j/2P/n/9f/6P/X/+f/2P/c/+f/2//o/9v/5//c/+j"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_i3n23"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA/7///wAA////v/////////+///8AAAAA/78AAAAA////vwAA//8AAP+/AAD//////78AAAAAAAD/vwAA//////+//////wAA/7//////////vwAA//8AAP+///8AAAAA/78AAAAA////v///AAD///+/AAAAAAAA/7///wAA//8AgAAA/////wCA////////AIAAAAAA//8AgAAA//8AAP////8AAAAA////////AAD//wAAAAAAAP///38AAP9/AAD/fwAA/38AAP9/////f////3////9///////9/////f////3////9/AAD/fwAA/38AAP9/AAD/f/9/////f////3////9/////f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_c50k5")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_81b1r"]
+_surfaces = [{
+"aabb": AABB(-0.0125, 0.05, -0.0125, 0.025, 0.025000002, 0.025),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAwAAAAIAAAAEAAEAAQAFAAMABAAFAAEAAwAGAAAABgAEAAAABQAGAAMABgAHAAQABAAHAAUABQAHAAYA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAD//wAA//8AAP///////wAAAAD/////AAD//wAAAAAAAAAAAAD//wAAAAD//wAAAAAAAAAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_e1pnp"]
+resource_name = "blockbench_export_mesh5"
+_surfaces = [{
+"aabb": AABB(-0.0125, 0.05, -0.0125, 0.025, 0.025000002, 0.025),
+"attribute_data": PackedByteArray("/6P/b/+f/3P/n/9v/6P/c/+D/6P/f/+f/4P/n/9//6P/n/+D/6P/f/+j/4P/n/9//5P/o/+P/5//k/+f/4//o/+j/5P/n/+P/6P/j/+f/5P/o/+f/5//o/+f/5//o/+j"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_i3n23"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA/7///wAA////v/////////+///8AAAAA/78AAAAA////vwAA//8AAP+/AAD//////78AAAAAAAD/vwAA//////+//////wAA/7//////////vwAA//8AAP+///8AAAAA/78AAAAA////v///AAD///+/AAAAAAAA/7///wAA//8AgAAA/////wCA////////AIAAAAAA//8AgAAA//8AAP////8AAAAA////////AAD//wAAAAAAAP///38AAP9/AAD/fwAA/38AAP9/////f////3////9///////9/////f////3////9/AAD/fwAA/38AAP9/AAD/f/9/////f////3////9/////f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_81b1r")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2kbqn"]
+_surfaces = [{
+"aabb": AABB(-0.0125, 0.05, -0.0125, 0.025, 0.025000002, 0.025),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAwAAAAIAAAAEAAEAAQAFAAMABAAFAAEAAwAGAAAABgAEAAAABQAGAAMABgAHAAQABAAHAAUABQAHAAYA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAD//wAA//8AAP///////wAAAAD/////AAD//wAAAAAAAAAAAAD//wAAAAD//wAAAAAAAAAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ctwn6"]
+resource_name = "blockbench_export_mesh6"
+_surfaces = [{
+"aabb": AABB(-0.0125, 0.05, -0.0125, 0.025, 0.025000002, 0.025),
+"attribute_data": PackedByteArray("/wP/pwAA/6sAAP+n/wP/q/+r/wP/pwAA/6sAAP+n/wP/D/+r/xP/p/8T/6v/D/+n/7P/E/+v/w//s/8P/6//E/8j/7P/H/+v/yP/r/8f/7P/s/8f/6//I/+v/x//s/8j"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_i3n23"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA/7///wAA////v/////////+///8AAAAA/78AAAAA////vwAA//8AAP+/AAD//////78AAAAAAAD/vwAA//////+//////wAA/7//////////vwAA//8AAP+///8AAAAA/78AAAAA////v///AAD///+/AAAAAAAA/7///wAA//8AgAAA/////wCA////////AIAAAAAA//8AgAAA//8AAP////8AAAAA////////AAD//wAAAAAAAP///38AAP9/AAD/fwAA/38AAP9/////f////3////9///////9/////f////3////9/AAD/fwAA/38AAP9/AAD/f/9/////f////3////9/////f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_2kbqn")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xis4i"]
+_surfaces = [{
+"aabb": AABB(-0.0125, 0.05, -0.0125, 0.025, 0.025000002, 0.025),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAwAAAAIAAAAEAAEAAQAFAAMABAAFAAEAAwAGAAAABgAEAAAABQAGAAMABgAHAAQABAAHAAUABQAHAAYA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAD//wAA//8AAP///////wAAAAD/////AAD//wAAAAAAAAAAAAD//wAAAAD//wAAAAAAAAAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3jxva"]
+resource_name = "blockbench_export_mesh7"
+_surfaces = [{
+"aabb": AABB(-0.0125, 0.05, -0.0125, 0.025, 0.025000002, 0.025),
+"attribute_data": PackedByteArray("/zP/r/8v/7P/L/+v/zP/s/+z/zP/r/8v/7P/L/+v/zP/P/+z/0P/r/9D/7P/P/+v/7P/Q/+v/z//s/8//6//Q/9T/7P/T/+v/1P/r/9P/7P/s/9P/6//U/+v/0//s/9T"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_i3n23"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA/7///wAA////v/////////+///8AAAAA/78AAAAA////vwAA//8AAP+/AAD//////78AAAAAAAD/vwAA//////+//////wAA/7//////////vwAA//8AAP+///8AAAAA/78AAAAA////v///AAD///+/AAAAAAAA/7///wAA//8AgAAA/////wCA////////AIAAAAAA//8AgAAA//8AAP////8AAAAA////////AAD//wAAAAAAAP///38AAP9/AAD/fwAA/38AAP9/////f////3////9///////9/////f////3////9/AAD/fwAA/38AAP9/AAD/f/9/////f////3////9/////f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_xis4i")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ceoe1"]
+_surfaces = [{
+"aabb": AABB(-0.00625, 0.05625, -0.01875, 0.0125, 0.012500003, 0.0375),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAwAAAAIAAAAEAAEAAQAFAAMABAAFAAEAAwAGAAAABgAEAAAABQAGAAMABgAHAAQABAAHAAUABQAHAAYA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAD//wAA//8AAP///////wAAAAD/////AAD//wAAAAAAAAAAAAD//wAAAAD//wAAAAAAAAAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7gl2j"]
+resource_name = "blockbench_export_mesh8"
+_surfaces = [{
+"aabb": AABB(-0.00625, 0.05625, -0.01875, 0.0125, 0.012500003, 0.0375),
+"attribute_data": PackedByteArray("/1P/j/9P/5P/T/+P/1P/k/+T/1P/j/9P/5P/T/+P/1P/X/+T/2P/j/9j/5P/X/+P/5P/Y/+P/1//k/9f/4//Y/9z/5P/b/+P/3P/j/9v/5P/k/9v/4//c/+P/2//k/9z"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_i3n23"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA/7///wAA////v/////////+///8AAAAA/78AAAAA////vwAA//8AAP+/AAD//////78AAAAAAAD/vwAA//////+//////wAA/7//////////vwAA//8AAP+///8AAAAA/78AAAAA////v///AAD///+/AAAAAAAA/7///wAA//8AgAAA/////wCA////////AIAAAAAA//8AgAAA//8AAP////8AAAAA////////AAD//wAAAAAAAP///38AAP9/AAD/fwAA/38AAP9/////f////3////9///////9/////f////3////9/AAD/fwAA/38AAP9/AAD/f/9/////f////3////9/////f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ceoe1")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4olo4"]
+_surfaces = [{
+"aabb": AABB(-0.0046875, 0.02384819, -0.021606877, 0.009375, 0.012499999, 0.024999999),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAwAAAAIAAAAEAAEAAQAFAAMABAAFAAEAAwAGAAAABgAEAAAABQAGAAMABgAHAAQABAAHAAUABQAHAAYA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAD//wAA//8AAP///////wAAAAD/////AAD//wAAAAAAAAAAAAD//wAAAAD//wAAAAAAAAAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ey2v8"]
+resource_name = "blockbench_export_mesh9"
+_surfaces = [{
+"aabb": AABB(-0.0046875, 0.02384819, -0.021606877, 0.009375, 0.012499999, 0.024999999),
+"attribute_data": PackedByteArray("/4P/j/9//5P/f/+P/4P/k/+T/4P/j/9//5P/f/+P/4P/j/+T/5P/j/+T/5P/j/+P/wP/mwAA/5f/A/+XAAD/m/+b/wP/lwAA/5sAAP+X/wP/E/+X/w//m/8P/5f/E/+b"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_i3n23"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA/7///wAA////v/////////+///8AAAAA/78AAAAA////vwAA//8AAP+/AAD//////78AAAAAAAD/vwAA//////+//////wAA/7//////////vwAA//8AAP+///8AAAAA/78AAAAA////v///AAD///+/AAAAAAAA/7///wAA//8AgAAA/////wCA////////AIAAAAAA//8AgAAA//8AAP////8AAAAA////////AAD//wAAAAAAAP///38AAP9/AAD/fwAA/38AAP9/////f////3////9///////9/////f////3////9/AAD/fwAA/38AAP9/AAD/f/9/////f////3////9/////f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_4olo4")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4budp"]
+_surfaces = [{
+"aabb": AABB(-0.0046875, 0.02384819, -0.021606877, 0.009375, 0.012499999, 0.024999999),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAwAAAAIAAAAEAAEAAQAFAAMABAAFAAEAAwAGAAAABgAEAAAABQAGAAMABgAHAAQABAAHAAUABQAHAAYA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAD//wAA//8AAP///////wAAAAD/////AAD//wAAAAAAAAAAAAD//wAAAAD//wAAAAAAAAAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_43bi1"]
+resource_name = "blockbench_export_mesh10"
+_surfaces = [{
+"aabb": AABB(-0.0046875, 0.02384819, -0.021606877, 0.009375, 0.012499999, 0.024999999),
+"attribute_data": PackedByteArray("/6P/D/+f/xP/n/8P/6P/E/8j/6P/H/+f/yP/n/8f/6P/n/8j/6P/H/+j/yP/n/8f/zP/o/8v/5//M/+f/y//o/+j/zP/n/8v/6P/L/+f/zP/Q/+f/z//o/8//5//Q/+j"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_i3n23"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA/7///wAA////v/////////+///8AAAAA/78AAAAA////vwAA//8AAP+/AAD//////78AAAAAAAD/vwAA//////+//////wAA/7//////////vwAA//8AAP+///8AAAAA/78AAAAA////v///AAD///+/AAAAAAAA/7///wAA//8AgAAA/////wCA////////AIAAAAAA//8AgAAA//8AAP////8AAAAA////////AAD//wAAAAAAAP///38AAP9/AAD/fwAA/38AAP9/////f////3////9///////9/////f////3////9/AAD/fwAA/38AAP9/AAD/f/9/////f////3////9/////f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_4budp")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_u168s"]
+_surfaces = [{
+"aabb": AABB(-0.015625, -0.0875, -0.015625, 0.03125, 0.3, 0.03125),
+"format": 34896613377,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAAADAAQAAAAEAAUABQABAAAAAwAGAAQABQAEAAcABAAGAAcABQAHAAgACAABAAUACAAHAAkABwAGAAkACAAJAAoACgABAAgACgAJAAsACQAGAAsADAABAAoACgALAAwACwAGAA0ADAALAA0ADgAGAAMAAgAOAAMADQAGAA8ADwAGAA4ADAANABAAEAANAA8AEAABAAwAEQAOAAIAEQAPAA4AAgABABEAEAAPABEAEQABABAA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("//8AAAO1AAD/fwAA/38AAAO1AAD//wAA/////wO1AAD/////+0oAAP//AAD7SgAA/3////9/AAADtf//AAAAAAO1AAAAAAAA+0r//wAAAAD7SgAAAAAAAAAA///7SgAAAAAAAPtKAAAAAP//A7UAAAO1/////wAA+0r/////AAAAAAAAA7UAAPtKAAD//wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3tf8h"]
+resource_name = "blockbench_export_mesh11"
+_surfaces = [{
+"aabb": AABB(-0.015625, -0.0875, -0.015625, 0.03125, 0.3, 0.03125),
+"attribute_data": PackedByteArray("/yMrkf8h/5HTIv+P/0f/J/9LAAD/S/8n/0cAANOS/yP/kf8h/5PUIv8j05L/If+R/yMrkf8f/1f/I/8v/yP/V/8f/y//k9Qi/5H/If+TKyHUIv+T/yH/kf8j05L/T/9X/1P/L/9T/1f/T/8v/5MrIf+R/yHTkv8fKyH/k/8h/5HUIv+T/y//V/8z/y//M/9X/y//L9OS/x//kf8hK5H/H/8f05L/If+RKyH/k/9X/yf/WwAA/1v/J/9XAAArkf8f/5H/If+PKyH/HyuR/yH/kf8f05L/N/8n/zsAAP87/yf/NwAA/48rIf+R/yH/j9MiKyH/j/8h/5H/HyuR/x//h/8j/1//I/+H/x//X/+P0yL/kf8hK5H/I9Mi/4//If+RKyH/j/8//1f/Q/8v/0P/V/8//y8rkf8j/5H/IdOS/yM="),
+"format": 34896613399,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUAAwAGAAQABwAIAAkACgALAAwADQAOAA8ADQAQAA4AEQASABMAFAAVABYAFwAYABkAFwAaABgAGwAcAB0AHgAfACAAIQAiACMAIQAkACIAJQAmACcAKAApACoAKwAsAC0AKwAuACwALwAwADEAMgAzADQANQA2ADcANQA4ADYAOQA6ADsAPAA9AD4APwBAAEEAPwBCAEAAQwBEAEUARgBHAEgASQBKAEsASQBMAEoATQBOAE8A"),
+"material": SubResource("StandardMaterial3D_i3n23"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 80,
+"vertex_data": PackedByteArray("//8AAAO1/7//fwAA/3//vwO1AAD///+/A7UAAP///5//////A7X/n///AAADtf+fA7X//////58Dtf//////v/9/////f/+//////wO1/7///wAA+0r/v/9/AAD/f/+///8AAAO1/7///wAAA7X/v//////7Sv+///8AAPtK/7//////A7X/v/////8Dtf+//3////9//7//////+0r/vwO1AAAAAP+//38AAP9//7///wAA+0r/v///AAD7Sv/fA7X//wAA/98DtQAAAAD/3//////7Sv/f//////tK/7//f////3//vwO1//8AAP+/+0oAAAAA/7//fwAA/3//vwO1AAAAAP+/A7UAAAAA///7Sv//AAD///tKAAAAAP//A7X//wAA//8Dtf//AAD/v/9/////f/+/+0r//wAA/78AAAAA+0r/v/9/AAD/f/+/+0oAAAAA/7/7SgAAAAD/3wAA///7Sv/fAAAAAPtK/9/7Sv//AAD/3/tK//8AAP+//3////9//78AAP//+0r/vwAAAAADtf+//38AAP9//78AAAAA+0r/vwAAAAD7Sv+/AAD//wO1/78AAAAAA7X/vwAA///7Sv+/AAD///tK/7//f////3//vwAA//8Dtf+/+0oAAP///7//fwAA/3//vwAAAAADtf+/AAAAAAO1/5/7Sv//////n/tKAAD///+fAAD//wO1/58AAP//A7X/v/9/////f/+/+0r//////78DtQAA////v/9/AAD/f/+/+0oAAP///7/7SgAA//8AgAO1/////wCAA7UAAP//AID7Sv////8AgPtK//////+//3////9//78Dtf//////vwMABoAAAP9/AQADgP9/AAD/fwAA/38AAP9/AAD9//t//P/5f/v/+H8DAAaAAAD/fwMABoD/fwAA/38AAP9/AAD/fwAA+//4f/z/+X/7//h/AQADgAAA/38DAAaA/38AAP9/AAD/fwAA/38AAPv/+H/8//l//f/7fwMA/X8AAP9/AQADgP9/////f////3////9////9//t//P/5f/3/+38HAPt/AAD/fwMA/X//f////3////9/////f////f/7f/z/+X/7//h/BwD7fwAA/38HAPt//3////9/////f////3////v/+H/8//l/+//4fwMA/X8AAP9/BwD7f/9/////f////3////9////7//h//P/5f/3/+38BAAOAAAD/fwMA/X//f////3////9/////f////f/7f/z/+X/9//t/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_u168s")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qmn5p"]
+_surfaces = [{
+"aabb": AABB(-0.015625, -0.075, -0.015625, 0.03125, 0.275, 0.03125),
+"format": 34896613377,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAAADAAQAAAAEAAUABQABAAAAAwAGAAQABQAEAAcABAAGAAcABQAHAAgACAABAAUACAAHAAkABwAGAAkACAAJAAoACgABAAgACgAJAAsACQAGAAsADAABAAoACgALAAwACwAGAA0ADAALAA0ADgAGAAMAAgAOAAMADQAGAA8ADwAGAA4ADAANABAAEAANAA8AEAABAAwAEQAOAAIAEQAPAA4AAgABABEAEAAPABEAEQABABAA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("//8AAAO1AAD/fwAA/38AAAO1AAD//wAA/////wO1AAD/////+0oAAP//AAD7SgAA/3////9/AAADtf//AAAAAAO1AAAAAAAA+0r//wAAAAD7SgAAAAAAAAAA///7SgAAAAAAAPtKAAAAAP//A7UAAAO1/////wAA+0r/////AAAAAAAAA7UAAPtKAAD//wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_b87rl"]
+resource_name = "blockbench_export_mesh12"
+_surfaces = [{
+"aabb": AABB(-0.015625, -0.075, -0.015625, 0.03125, 0.275, 0.03125),
+"attribute_data": PackedByteArray("/zMrkf8x/5HTMv+P/1//g/9j/1//Y/+D/1//X9OS/zP/kf8x/5PTMv8z05L/Mf+R/zMrkf8v/4P/M/9f/zP/g/8v/1//k9My/5H/Mf+TKzHTMv+T/zH/kf8z05IAAP+L/wP/Z/8D/4sAAP9n/5MrMf+R/zHTkv8vKzH/k/8x/5HTMv+T/1//U/9j/y//Y/9T/1//L9OS/y//kf8xK5H/L/8v05L/Mf+RKzH/k/9n/yP/awAA/2v/I/9nAAArkf8v/5H/Mf+PKzH/LyuR/zH/kf8v05L/P/+D/0P/X/9D/4P/P/9f/48rMf+R/zH/j9MyKzH/j/8x/5H/LyuR/w//i/8T/2f/E/+L/w//Z/+P0zL/kf8xK5H/M9My/4//Mf+RKzH/j/9P/4P/U/9f/1P/g/9P/18rkf8z/5H/MdOS/zM="),
+"format": 34896613399,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUAAwAGAAQABwAIAAkACgALAAwADQAOAA8ADQAQAA4AEQASABMAFAAVABYAFwAYABkAFwAaABgAGwAcAB0AHgAfACAAIQAiACMAIQAkACIAJQAmACcAKAApACoAKwAsAC0AKwAuACwALwAwADEAMgAzADQANQA2ADcANQA4ADYAOQA6ADsAPAA9AD4APwBAAEEAPwBCAEAAQwBEAEUARgBHAEgASQBKAEsASQBMAEoATQBOAE8A"),
+"material": SubResource("StandardMaterial3D_i3n23"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 80,
+"vertex_data": PackedByteArray("//8AAAO1/7//fwAA/3//vwO1AAD///+/A7UAAP///5//////A7X/n///AAADtf+fA7X//////58Dtf//////v/9/////f/+//////wO1/7///wAA+0r/v/9/AAD/f/+///8AAAO1/7///wAAA7X/v//////7Sv+///8AAPtK/7//////A7X/v/////8Dtf+//3////9//7//////+0r/vwO1AAAAAP+//38AAP9//7///wAA+0r/v///AAD7Sv/fA7X//wAA/98DtQAAAAD/3//////7Sv/f//////tK/7//f////3//vwO1//8AAP+/+0oAAAAA/7//fwAA/3//vwO1AAAAAP+/A7UAAAAA///7Sv//AAD///tKAAAAAP//A7X//wAA//8Dtf//AAD/v/9/////f/+/+0r//wAA/78AAAAA+0r/v/9/AAD/f/+/+0oAAAAA/7/7SgAAAAD/3wAA///7Sv/fAAAAAPtK/9/7Sv//AAD/3/tK//8AAP+//3////9//78AAP//+0r/vwAAAAADtf+//38AAP9//78AAAAA+0r/vwAAAAD7Sv+/AAD//wO1/78AAAAAA7X/vwAA///7Sv+/AAD///tK/7//f////3//vwAA//8Dtf+/+0oAAP///7//fwAA/3//vwAAAAADtf+/AAAAAAO1/5/7Sv//////n/tKAAD///+fAAD//wO1/58AAP//A7X/v/9/////f/+/+0r//////78DtQAA////v/9/AAD/f/+/+0oAAP///7/7SgAA//8AgAO1/////wCAA7UAAP//AID7Sv////8AgPtK//////+//3////9//78Dtf//////vwMABoAAAP9/AQADgP9/AAD/fwAA/38AAP9/AAD9//t//P/5f/v/+H8DAAaAAAD/fwMABoD/fwAA/38AAP9/AAD/fwAA+//4f/z/+X/7//h/AQADgAAA/38DAAaA/38AAP9/AAD/fwAA/38AAPv/+H/8//l//f/7fwMA/X8AAP9/AQADgP9/////f////3////9////9//t//P/5f/3/+38HAPt/AAD/fwMA/X//f////3////9/////f////f/7f/z/+X/7//h/BwD7fwAA/38HAPt//3////9/////f////3////v/+H/8//l/+//4fwMA/X8AAP9/BwD7f/9/////f////3////9////7//h//P/5f/3/+38BAAOAAAD/fwMA/X//f////3////9/////f////f/7f/z/+X/9//t/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_qmn5p")
+
+[sub_resource type="Animation" id="Animation_7wf5q"]
+resource_name = "PistolsIdle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponManager/DualPistols:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5000001, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.1662817, 0), Vector3(0, 1.1550617, 0), Vector3(0, 1.1662817, 0), Vector3(0, 1.1550617, 0), Vector3(0, 1.1662817, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponManager/DualPistols:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5000001, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gybw3"]
+resource_name = "PistolsReload"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponManager/DualPistols/blockbench_export:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.40000004, 1, 1.2, 1.4000001, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.5078559, 0, 0), Vector3(0, 0, 0), Vector3(0, 0.48701665, 0), Vector3(0, 0.36063737, 0), Vector3(0, 0.48701665, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponManager/DualPistols/blockbench_export2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.40000004, 1, 1.2, 1.4000001, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.5078559, 0, 0), Vector3(0, 0, 0), Vector3(0, -0.41861722, 0), Vector3(0, -0.351998, 0), Vector3(0, -0.41861722, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WeaponManager/DualPistols/blockbench_export:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.40000004, 1, 1.2, 1.4000001, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.26008147, -1.1833578, -0.37646884), Vector3(0.26008147, -1.4956348, 0.11602074), Vector3(0.26008147, -1.1833578, -0.37646884), Vector3(0.13075483, -1.1833578, -0.37646884), Vector3(0.15313381, -1.1833578, -0.37646884), Vector3(0.13075483, -1.1833578, -0.37646884), Vector3(0.26008147, -1.1833578, -0.37646884)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WeaponManager/DualPistols/blockbench_export2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.40000004, 1, 1.2, 1.4000001, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.26, -1.183, -0.376), Vector3(-0.26, -1.4950941, 0.116256416), Vector3(-0.26, -1.183, -0.376), Vector3(-0.06839645, -1.183, -0.376), Vector3(-0.11849916, -1.183, -0.376), Vector3(-0.06839645, -1.183, -0.376), Vector3(-0.26, -1.183, -0.376)]
+}
+
+[sub_resource type="Animation" id="Animation_h5xsp"]
+resource_name = "PistolsRun"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponManager/DualPistols/blockbench_export2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.40000004, 0.6, 0.8000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.26, -1.183, -0.376), Vector3(-0.21788585, -1.2694713, -0.376), Vector3(-0.16319048, -1.21378, -0.376), Vector3(-0.21788585, -1.2694713, -0.376), Vector3(-0.26, -1.183, -0.376)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponManager/DualPistols/blockbench_export:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.40000004, 0.6, 0.8000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.26008147, -1.1833578, -0.37646884), Vector3(0.3021956, -1.2698292, -0.37646884), Vector3(0.35689098, -1.2141379, -0.37646884), Vector3(0.3021956, -1.2698292, -0.37646884), Vector3(0.26008147, -1.1833578, -0.37646884)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WeaponManager/DualPistols/blockbench_export2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.40000004, 0.6, 0.8000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WeaponManager/DualPistols/blockbench_export:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.40000004, 0.6, 0.8000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1b2qk"]
+resource_name = "PistolsShoot"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponManager/DualPistols/blockbench_export2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.40000004),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.26, -1.183, -0.376), Vector3(-0.26, -1.0406855, -0.3851549), Vector3(-0.26, -1.183, -0.376)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponManager/DualPistols/blockbench_export2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.40000004),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.20437805, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_chm2e"]
+resource_name = "PistolsShootRight"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponManager/DualPistols/blockbench_export:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.40000004),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.26008147, -1.1833578, -0.37646884), Vector3(0.26008147, -1.1833578, -0.33086836), Vector3(0.26008147, -1.1833578, -0.37646884)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponManager/DualPistols/blockbench_export:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.40000004),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.11486012, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cayv7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponManager/AssaultRifle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.17920679, 1.0096756, -0.50785905)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponManager/AssaultRifle:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WeaponManager/AssaultRifle/DrumGun/RouletteWheel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.09375, 0.915625, -0.06875)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WeaponManager/AssaultRifle/DrumGun/RouletteWheel:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.5707964, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WeaponManager/AssaultRifle/DrumGun/GunTube:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.1125, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("WeaponManager/AssaultRifle/DrumGun:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.1019648, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("WeaponManager/AssaultRifle/DrumGun/GunBody:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.9375, 0.125)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("WeaponManager/AssaultRifle/DrumGun/GunStock:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1, -0.21875)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("WeaponManager/AssaultRifle/DrumGun/GunStockBackHandle:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1, 0.40625)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("WeaponManager/AssaultRifle/DrumGun/GunStockHandle:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.95625, -0.28125)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("WeaponManager/AssaultRifle/DrumGun/GunBodyHandle:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.8125, 0.26875)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("WeaponManager/AssaultRifle/DrumGun/GunTube:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.5707964, 0, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("WeaponManager/AssaultRifle/DrumGun:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("WeaponManager/AssaultRifle/DrumGun/GunBody:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("WeaponManager/AssaultRifle/DrumGun/GunStock:rotation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("WeaponManager/AssaultRifle/DrumGun/GunStockBackHandle:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("WeaponManager/AssaultRifle/DrumGun/GunStockHandle:rotation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.2217306, 0, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("WeaponManager/AssaultRifle/DrumGun/GunBodyHandle:rotation")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.30543262, 0, 0)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("WeaponManager/DualPistols/blockbench_export2:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.26, -1.183, -0.376)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("WeaponManager/DualPistols/blockbench_export2:rotation")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("WeaponManager/DualPistols/blockbench_export:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.26008147, -1.1833578, -0.37646884)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("WeaponManager/DualPistols/blockbench_export:rotation")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("WeaponManager/Shotgun:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.1662816, -0.009454191)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("WeaponManager/Shotgun:rotation")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("WeaponManager/Shotgun/blockbench_export/Stock:position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.94375, -0.24375)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("WeaponManager/Shotgun/blockbench_export/Stock:rotation")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("WeaponManager/DualPistols:position")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.1662817, 0)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("WeaponManager/DualPistols:rotation")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_r52jx"]
+resource_name = "RifleIdle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponManager/AssaultRifle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.17920679, 1.0096756, -0.50785905), Vector3(0.17920679, 0.98401666, -0.50785905), Vector3(0.17920679, 1.0096756, -0.50785905), Vector3(0.17920679, 1.0298126, -0.50785905), Vector3(0.17920679, 1.0096756, -0.50785905)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponManager/AssaultRifle:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nfqe0"]
+resource_name = "RifleReload"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponManager/AssaultRifle/DrumGun/RouletteWheel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.6, 1.4, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.09375, 0.915625, -0.06875), Vector3(0.09375, 0.915625, -0.06875), Vector3(0.19505751, 0.43945265, -0.060041368), Vector3(0.09375, 0.915625, -0.06875), Vector3(0.09375, 0.915625, -0.06875)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponManager/AssaultRifle/DrumGun/RouletteWheel:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.6, 1.4, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.5707964, 0, 0), Vector3(-1.5707964, 0, 0), Vector3(-1.5707964, -9.313228e-10, 0), Vector3(-1.5707964, 0, 0), Vector3(-1.5707964, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WeaponManager/AssaultRifle/DrumGun/GunTube:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.1125, 0), Vector3(0, 1.1125, 0), Vector3(0, 1.1125, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WeaponManager/AssaultRifle/DrumGun:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -1.1019648, 0), Vector3(0, -1.1019648, 0), Vector3(0, -1.1019648, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WeaponManager/AssaultRifle/DrumGun/GunBody:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.9375, 0.125), Vector3(0, 0.9375, 0.125), Vector3(0, 0.9375, 0.125)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("WeaponManager/AssaultRifle/DrumGun/GunStock:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, -0.21875), Vector3(0, 1, -0.21875), Vector3(0, 1, -0.21875)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("WeaponManager/AssaultRifle/DrumGun/GunStockBackHandle:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0.40625), Vector3(0, 1, 0.40625), Vector3(0, 1, 0.40625)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("WeaponManager/AssaultRifle/DrumGun/GunStockHandle:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.95625, -0.28125), Vector3(0, 0.95625, -0.28125), Vector3(0, 0.95625, -0.28125)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("WeaponManager/AssaultRifle/DrumGun/GunBodyHandle:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.8125, 0.26875), Vector3(0, 0.8125, 0.26875), Vector3(0, 0.8125, 0.26875)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("WeaponManager/AssaultRifle/DrumGun/GunTube:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.5707964, 0, 0), Vector3(-1.5707964, 0, 0), Vector3(-1.5707964, 0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("WeaponManager/AssaultRifle/DrumGun:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.017886644, -0.016440056, -0.20962845), Vector3(0, 0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("WeaponManager/AssaultRifle/DrumGun/GunBody:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("WeaponManager/AssaultRifle/DrumGun/GunStock:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("WeaponManager/AssaultRifle/DrumGun/GunStockBackHandle:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("WeaponManager/AssaultRifle/DrumGun/GunStockHandle:rotation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.2217306, 0, 0), Vector3(1.2217306, 0, 0), Vector3(1.2217306, 0, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("WeaponManager/AssaultRifle/DrumGun/GunBodyHandle:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.30543262, 0, 0), Vector3(-0.30543262, 0, 0), Vector3(-0.30543262, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0skwq"]
+resource_name = "RifleRun"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponManager/AssaultRifle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.40000004, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.17920679, 1.0096756, -0.50785905), Vector3(0.22816348, 0.9833226, -0.50785905), Vector3(0.24039654, 1.0109241, -0.50785905), Vector3(0.22816348, 0.9833226, -0.50785905), Vector3(0.17920679, 1.0096756, -0.50785905)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponManager/AssaultRifle:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.40000004, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i1ion"]
+resource_name = "RifleShoot"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponManager/AssaultRifle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.2, 0.3, 0.40000004, 0.50000006, 0.6, 0.70000005, 0.8000001, 0.9000001, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.17920679, 1.0096756, -0.50785905), Vector3(0.17920679, 1.0096757, -0.40234536), Vector3(0.17920679, 1.0096756, -0.50785905), Vector3(0.17920679, 1.0096757, -0.40234536), Vector3(0.17920679, 1.0096756, -0.50785905), Vector3(0.17920679, 1.0096757, -0.40234536), Vector3(0.17920679, 1.0096756, -0.50785905), Vector3(0.17920679, 1.0096757, -0.40234536), Vector3(0.17920679, 1.0096756, -0.50785905), Vector3(0.17920679, 1.0096757, -0.40234536), Vector3(0.17920679, 1.0096756, -0.50785905)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponManager/AssaultRifle:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.2, 0.3, 0.40000004, 0.50000006, 0.6, 0.70000005, 0.8000001, 0.9000001, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ijtlc"]
+resource_name = "ShotgunIdle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponManager/Shotgun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5000001, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.1662816, -0.009454191), Vector3(0, 1.148293, -0.009454191), Vector3(0, 1.1662816, -0.009454191), Vector3(0, 1.148293, -0.009454191), Vector3(0, 1.1662816, -0.009454191)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponManager/Shotgun:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5000001, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bxcsc"]
+resource_name = "ShotgunReload"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponManager/Shotgun/blockbench_export/Stock:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.40000004, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.94375, -0.24375), Vector3(0, 0.94375, -0.24375), Vector3(-1.1920929e-07, 0.9437505, -0.16132188), Vector3(0, 0.94375, -0.24375), Vector3(0, 0.94375, -0.24375)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponManager/Shotgun:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.40000004, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.1662816, -0.009454191), Vector3(0, 1.1662815, -0.009454191), Vector3(0, 1.1662815, -0.009454191), Vector3(0, 1.1662816, -0.009454191)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WeaponManager/Shotgun/blockbench_export/Stock:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.40000004, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WeaponManager/Shotgun:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.40000004, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.26179942), Vector3(0, 0, -0.26179942), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3e50j"]
+resource_name = "ShotgunRun"
+length = 0.8062859
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponManager/Shotgun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.40000004, 0.6, 0.8000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.1662816, -0.009454191), Vector3(0.03595069, 1.1394565, -0.009454191), Vector3(0.072261244, 1.1595929, -0.009454191), Vector3(0.03595069, 1.1394565, -0.009454191), Vector3(0, 1.1662816, -0.009454191)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponManager/Shotgun:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.40000004, 0.6, 0.8000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gd3no"]
+resource_name = "ShotgunShoot"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponManager/Shotgun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.1662816, -0.009454191), Vector3(0, 1.1662815, 0.29090336), Vector3(0, 1.1662816, -0.009454191)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponManager/Shotgun:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.33606315, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cayv7"]
+_data = {
+&"PistolsIdle": SubResource("Animation_7wf5q"),
+&"PistolsReload": SubResource("Animation_gybw3"),
+&"PistolsRun": SubResource("Animation_h5xsp"),
+&"PistolsShootLeft": SubResource("Animation_1b2qk"),
+&"PistolsShootRight": SubResource("Animation_chm2e"),
+&"RESET": SubResource("Animation_cayv7"),
+&"RifleIdle": SubResource("Animation_r52jx"),
+&"RifleReload": SubResource("Animation_nfqe0"),
+&"RifleRun": SubResource("Animation_0skwq"),
+&"RifleShoot": SubResource("Animation_i1ion"),
+&"ShotgunIdle": SubResource("Animation_ijtlc"),
+&"ShotgunReload": SubResource("Animation_bxcsc"),
+&"ShotgunRun": SubResource("Animation_3e50j"),
+&"ShotgunShoot": SubResource("Animation_gd3no")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0skwq"]
+radius = 0.30566406
+
+[node name="FirstPersonPlayer" type="CharacterBody3D" unique_id=1653549429]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=760489150]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="WeaponManager" type="Node3D" parent="." unique_id=2097851969]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.8149291, -0.13580742)
+script = ExtResource("2_cayv7")
+
+[node name="AssaultRifle" type="Node3D" parent="WeaponManager" unique_id=293869399 node_paths=PackedStringArray("Muzzle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17920679, 1.0096756, -0.50785905)
+script = ExtResource("2_nfqe0")
+bulletSpeed = 150.0
+Muzzle = NodePath("Marker3D")
+
+[node name="Marker3D" type="Marker3D" parent="WeaponManager/AssaultRifle" unique_id=827857944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0003560409, 0.009950399, -0.66136855)
+
+[node name="DrumGun" type="Node3D" parent="WeaponManager/AssaultRifle" unique_id=782660006]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, -1.1019648, 0)
+
+[node name="GunBody" type="MeshInstance3D" parent="WeaponManager/AssaultRifle/DrumGun" unique_id=1552879946]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9375, 0.125)
+mesh = SubResource("ArrayMesh_8w3c5")
+skeleton = NodePath("")
+
+[node name="GunStock" type="MeshInstance3D" parent="WeaponManager/AssaultRifle/DrumGun" unique_id=1493008912]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.21875)
+mesh = SubResource("ArrayMesh_dwdqf")
+skeleton = NodePath("")
+
+[node name="GunStockBackHandle" type="MeshInstance3D" parent="WeaponManager/AssaultRifle/DrumGun" unique_id=743221074]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.40625)
+mesh = SubResource("ArrayMesh_ol3ec")
+skeleton = NodePath("")
+
+[node name="GunStockHandle" type="MeshInstance3D" parent="WeaponManager/AssaultRifle/DrumGun" unique_id=712417891]
+transform = Transform3D(1, 0, 0, 0, 0.34202003, -0.9396927, 0, 0.9396927, 0.34202003, 0, 0.95625, -0.28125)
+mesh = SubResource("ArrayMesh_gw5ek")
+skeleton = NodePath("")
+
+[node name="GunBodyHandle" type="MeshInstance3D" parent="WeaponManager/AssaultRifle/DrumGun" unique_id=1475883414]
+transform = Transform3D(1, 0, 0, 0, 0.95371693, 0.3007058, 0, -0.3007058, 0.95371693, 0, 0.8125, 0.26875)
+mesh = SubResource("ArrayMesh_akifb")
+skeleton = NodePath("")
+
+[node name="GunTube" type="MeshInstance3D" parent="WeaponManager/AssaultRifle/DrumGun" unique_id=1732870673]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.1125, 0)
+mesh = SubResource("ArrayMesh_qhcjq")
+skeleton = NodePath("")
+
+[node name="RouletteWheel" type="Node3D" parent="WeaponManager/AssaultRifle/DrumGun" unique_id=1472282445]
+transform = Transform3D(1.0000001, 0, 0, 0, -4.371139e-08, 1.0000001, 0, -1, -4.3711392e-08, 0.09375, 0.915625, -0.06875)
+
+[node name="RoulettewheelBase" type="MeshInstance3D" parent="WeaponManager/AssaultRifle/DrumGun/RouletteWheel" unique_id=1625798613]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09375, -0.071875, 0)
+mesh = SubResource("ArrayMesh_t6qb3")
+skeleton = NodePath("")
+
+[node name="RWCenterPole" type="MeshInstance3D" parent="WeaponManager/AssaultRifle/DrumGun/RouletteWheel" unique_id=916865668]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09375, -0.096875, 0)
+mesh = SubResource("ArrayMesh_gka2s")
+skeleton = NodePath("")
+
+[node name="RWSidePole" type="MeshInstance3D" parent="WeaponManager/AssaultRifle/DrumGun/RouletteWheel" unique_id=2057359782]
+transform = Transform3D(0, 0, 1, 1, 0, 0, 0, 1, 0, -0.09375, 0, 0.03125)
+mesh = SubResource("ArrayMesh_ce4u2")
+skeleton = NodePath("")
+
+[node name="RWSidePole2" type="MeshInstance3D" parent="WeaponManager/AssaultRifle/DrumGun/RouletteWheel" unique_id=790495385]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("ArrayMesh_6r5am")
+skeleton = NodePath("")
+
+[node name="DualPistols" type="Node3D" parent="WeaponManager" unique_id=100188987 node_paths=PackedStringArray("LeftMuzzle", "RightMuzzle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1662817, 0)
+visible = false
+script = ExtResource("4_nfqe0")
+LeftMuzzle = NodePath("LeftMarker")
+RightMuzzle = NodePath("RightMarker")
+bulletSpeed = 150.0
+
+[node name="blockbench_export2" parent="WeaponManager/DualPistols" unique_id=962484517 instance=ExtResource("5_0skwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26, -1.183, -0.376)
+
+[node name="blockbench_export" parent="WeaponManager/DualPistols" unique_id=1799607304 instance=ExtResource("5_0skwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26008147, -1.1833578, -0.37646884)
+
+[node name="RightMarker" type="Marker3D" parent="WeaponManager/DualPistols" unique_id=1399286944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26008147, -0.10984782, -0.48608774)
+
+[node name="LeftMarker" type="Marker3D" parent="WeaponManager/DualPistols" unique_id=657206488]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25980663, -0.10984782, -0.48608774)
+
+[node name="Shotgun" type="Node3D" parent="WeaponManager" unique_id=1004360983 node_paths=PackedStringArray("Muzzle")]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 1.1662816, -0.009454191)
+visible = false
+script = ExtResource("6_0skwq")
+spreadAngle = 5.0
+Muzzle = NodePath("Marker3D")
+
+[node name="blockbench_export" type="Node3D" parent="WeaponManager/Shotgun" unique_id=594323444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18, -1.1671788, -0.41049337)
+
+[node name="Body" type="MeshInstance3D" parent="WeaponManager/Shotgun/blockbench_export" unique_id=479498971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.96875, 0)
+mesh = SubResource("ArrayMesh_rcekk")
+skeleton = NodePath("")
+
+[node name="Stock" type="MeshInstance3D" parent="WeaponManager/Shotgun/blockbench_export" unique_id=1867517220]
+transform = Transform3D(1.0000002, 0, 0, 0, 1.0000002, 0, 0, 0, 1, 0, 0.94375, -0.24375)
+mesh = SubResource("ArrayMesh_y1myv")
+skeleton = NodePath("")
+
+[node name="Stock2" type="MeshInstance3D" parent="WeaponManager/Shotgun/blockbench_export" unique_id=20610208]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04375, 0.959375, 0.0125)
+mesh = SubResource("ArrayMesh_vc5e5")
+skeleton = NodePath("")
+
+[node name="Dice1" type="MeshInstance3D" parent="WeaponManager/Shotgun/blockbench_export" unique_id=1059508592]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0375, 0.975, -0.04375)
+mesh = SubResource("ArrayMesh_d00ig")
+skeleton = NodePath("")
+
+[node name="Dice2" type="MeshInstance3D" parent="WeaponManager/Shotgun/blockbench_export" unique_id=1444306492]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0375, 0.975, -0.00625)
+mesh = SubResource("ArrayMesh_e1pnp")
+skeleton = NodePath("")
+
+[node name="Dice3" type="MeshInstance3D" parent="WeaponManager/Shotgun/blockbench_export" unique_id=1599923807]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0375, 0.975, 0.03125)
+mesh = SubResource("ArrayMesh_ctwn6")
+skeleton = NodePath("")
+
+[node name="Dice4" type="MeshInstance3D" parent="WeaponManager/Shotgun/blockbench_export" unique_id=2110961868]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0375, 0.975, 0.06875)
+mesh = SubResource("ArrayMesh_3jxva")
+skeleton = NodePath("")
+
+[node name="Handle middle" type="MeshInstance3D" parent="WeaponManager/Shotgun/blockbench_export" unique_id=2083429348]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9125, 0.075)
+mesh = SubResource("ArrayMesh_7gl2j")
+skeleton = NodePath("")
+
+[node name="HandleBack" type="MeshInstance3D" parent="WeaponManager/Shotgun/blockbench_export" unique_id=1307402547]
+transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071068, 0, -0.7071068, 0.7071067, 0, 0.96875, 0.125)
+mesh = SubResource("ArrayMesh_ey2v8")
+skeleton = NodePath("")
+
+[node name="HandleFront" type="MeshInstance3D" parent="WeaponManager/Shotgun/blockbench_export" unique_id=1697551539]
+transform = Transform3D(1, 0, 0, 0, -0.70710695, 0.7071068, 0, -0.7071068, -0.70710695, 0, 1.0125, 0.06875)
+mesh = SubResource("ArrayMesh_43bi1")
+skeleton = NodePath("")
+
+[node name="cylinder" type="MeshInstance3D" parent="WeaponManager/Shotgun/blockbench_export" unique_id=1840930711]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 1.05, -0.175)
+mesh = SubResource("ArrayMesh_3tf8h")
+skeleton = NodePath("")
+
+[node name="cylinder2" type="MeshInstance3D" parent="WeaponManager/Shotgun/blockbench_export" unique_id=930450760]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 1.0125, -0.1625)
+mesh = SubResource("ArrayMesh_b87rl")
+skeleton = NodePath("")
+
+[node name="Marker3D" type="Marker3D" parent="WeaponManager/Shotgun" unique_id=430002946]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17991401, -0.118460745, -0.8356195)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=545645534]
+libraries/ = SubResource("AnimationLibrary_cayv7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=465930771]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_0skwq")

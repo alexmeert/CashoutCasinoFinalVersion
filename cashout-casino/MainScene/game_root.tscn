@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://bfxnwdbaagl2n"]
+
+[ext_resource type="Script" uid="uid://b6l62hns0p8n3" path="res://NetworkCore/GenericCore.cs" id="1_ujqun"]
+[ext_resource type="Script" uid="uid://b2fb80xs807f4" path="res://NetworkCore/NetworkCore.cs" id="2_o70cg"]
+[ext_resource type="Script" uid="uid://b4ksjok2k4rhy" path="res://System/GameMaster.cs" id="3_o70cg"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_o70cg"]
+properties/0/path = NodePath("GameStatus:text")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("PlayersReady:text")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="GameRoot" type="Node" unique_id=1460889274]
+script = ExtResource("1_ujqun")
+PublicIP = "23.128.112.67"
+PrivateIP = "10.200.208.186"
+_portMaximum = 10000
+_portMinimum = 9100
+_localPort = 9100
+_serverAddress = "127.0.0.1"
+_maxConnections = 4
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=633804836]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=631944145]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control" unique_id=1345035539]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 10
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="CanvasLayer/Control/GridContainer" unique_id=70661363]
+_spawnable_scenes = PackedStringArray("uid://d04vhwk4mdveb")
+spawn_path = NodePath("..")
+script = ExtResource("2_o70cg")
+SpawnInexZeroOnConnect = true
+
+[node name="HostButton" type="Button" parent="CanvasLayer" unique_id=1783935955]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -144.99997
+offset_top = -201.99997
+offset_right = -100.99997
+offset_bottom = -170.99997
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.1741682, 1.1741682)
+text = "Host"
+
+[node name="ClientButton" type="Button" parent="CanvasLayer" unique_id=1755454888]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 68.0
+offset_top = -204.0
+offset_right = 121.0
+offset_bottom = -173.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.1741681, 1.1741681)
+text = "Client"
+
+[node name="MainGameSpace" type="Node3D" parent="." unique_id=1233399015]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="MainGameSpace" unique_id=426855792]
+_spawnable_scenes = PackedStringArray("uid://b12m7brj7s7hi", "uid://dpbhbh3ssey3m")
+spawn_path = NodePath("..")
+script = ExtResource("2_o70cg")
+
+[node name="GameMaster" type="Node" parent="." unique_id=490744433 node_paths=PackedStringArray("NpmSpawner", "LevelSpawner", "_serverStatus", "_playersReady", "_hostButton", "_clientButton", "_lobbyCanvasLayer")]
+script = ExtResource("3_o70cg")
+NpmSpawner = NodePath("../CanvasLayer/Control/GridContainer/MultiplayerSpawner")
+LevelSpawner = NodePath("../MainGameSpace/MultiplayerSpawner")
+_serverStatus = NodePath("../GameStatus")
+_playersReady = NodePath("../PlayersReady")
+_hostButton = NodePath("../CanvasLayer/HostButton")
+_clientButton = NodePath("../CanvasLayer/ClientButton")
+_lobbyCanvasLayer = NodePath("../CanvasLayer")
+
+[node name="GameStatus" type="Label" parent="." unique_id=1992711105]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 86.0
+offset_right = 20.0
+offset_bottom = 109.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "game status"
+
+[node name="PlayersReady" type="Label" parent="." unique_id=43087125]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 40.0
+offset_right = 20.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "playersready"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=300581954]
+replication_config = SubResource("SceneReplicationConfig_o70cg")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1992210243]
+z_index = -2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="CanvasLayer/HostButton" to="." method="CreateLocalGame"]
+[connection signal="pressed" from="CanvasLayer/HostButton" to="GameMaster" method="OnServerStarted"]
+[connection signal="pressed" from="CanvasLayer/ClientButton" to="." method="JoinGame"]

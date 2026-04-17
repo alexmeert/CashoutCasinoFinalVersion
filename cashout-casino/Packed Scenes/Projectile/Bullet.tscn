@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://tp3wlbcfm3jt"]
+
+[ext_resource type="Script" uid="uid://d4h8k2naxqbwp" path="res://Scripts/Projectile/BulletProjectile.cs" id="1_bullet"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xdgik"]
+height = 0.57334507
+radius = 0.018066406
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_764c8"]
+albedo_color = Color(1, 1, 0, 1)
+emission_enabled = true
+emission = Color(1, 1, 0.3372549, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_764c8"]
+material = SubResource("StandardMaterial3D_764c8")
+
+[node name="Bullet" type="Area3D" unique_id=991654012]
+collision_layer = 0
+collision_mask = 3
+monitorable = false
+monitoring = true
+script = ExtResource("1_bullet")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=772843103]
+transform = Transform3D(1.1, 0, 0, 0, -4.8082526e-08, 1.1, 0, -1.1, -4.8082526e-08, 0, -3.130375e-11, -0.00071610743)
+shape = SubResource("CylinderShape3D_xdgik")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1503840260]
+transform = Transform3D(0.022175994, 0, 0, 0, 0.022175994, 0, 0, 0, 0.616, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_764c8")
