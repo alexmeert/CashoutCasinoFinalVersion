@@ -238,6 +238,13 @@ namespace CashoutCasino.Character
 				camera.Current = false;
 				if (_armature != null) _armature.Visible = true;
 				if (_fpPlayer != null) _fpPlayer.Visible = false;
+				// Always show this player's health bar above their head for other clients.
+				if (WorldHealthBar != null)
+				{
+					WorldHealthBar.Visible = true;
+					WorldHealthBar.SetPersistent(true);
+					WorldHealthBar.ShowFor(currentHealth, maxHealth);
+				}
 				// Show wm so the correct weapon is visible on the remote player.
 				// LockWeapon will have set the right weapon index via RPC.
 				if (wm != null) wm.Visible = true;
@@ -344,6 +351,9 @@ namespace CashoutCasino.Character
 				hud?.OnDamageTaken();
 				TriggerCameraShake();
 			}
+			// Update the persistent world health bar on remote players.
+			if (!IsMultiplayerAuthority())
+				WorldHealthBar?.ShowFor(currentHealth, maxHealth);
 		}
 
 		[Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true,
@@ -386,7 +396,10 @@ namespace CashoutCasino.Character
 		{
 			if (animName != "Death") return;
 			_tpAnimPlayer.AnimationFinished -= FreezeOnDeathFrame;
-			_tpAnimPlayer.Stop(false); // keep last frame, don't reset to rest pose
+			// Seek to the very last frame then pause so the skeleton holds the death pose.
+			if (_tpAnimPlayer.HasAnimation("Death"))
+				_tpAnimPlayer.Seek((double)_tpAnimPlayer.GetAnimation("Death").Length, true);
+			_tpAnimPlayer.Pause();
 		}
 
 		private void DoRespawn() => RpcId(1, MethodName.RequestRespawn);
@@ -415,6 +428,8 @@ namespace CashoutCasino.Character
 			var pc = GetNodeOrNull<PlayerCharacter>("PlayerCharacter");
 			if (pc != null && pc.MyColor.A > 0)
 				pc.ApplyColor(pc.MyColor);
+			if (!IsMultiplayerAuthority())
+				WorldHealthBar?.ShowFor(currentHealth, maxHealth);
 			if (IsMultiplayerAuthority())
 			{
 				_spectateTarget = null;

@@ -35,6 +35,11 @@ namespace CashoutCasino.Weapon
 		public virtual void Reload() { }
 		public virtual void Equip(CashoutCasino.Character.Character newOwner) => owner = newOwner;
 		public virtual void Unequip() => owner = null;
+
+		// Called by WeaponManager when this weapon becomes active/inactive.
+		// Override to show/hide associated nodes that live outside this node's subtree.
+		public virtual void OnEquip() { }
+		public virtual void OnUnequip() { }
 		public virtual void SyncAmmoDisplay(int amount) => currentAmmo = amount;
 		public int GetAmmoCount() => currentAmmo;
 

@@ -14,6 +14,7 @@ namespace CashoutCasino.UI
 		private float hideTimer = 0f;
 		private bool visible3d = false;
 		private Camera3D localCamera;
+		private bool _persistent = false;
 
 		public override void _Ready()
 		{
@@ -36,10 +37,17 @@ namespace CashoutCasino.UI
 			quad.Visible = false;
 		}
 
+		// Call once to keep the bar permanently visible (for remote players).
+		public void SetPersistent(bool on)
+		{
+			_persistent = on;
+			if (on) { visible3d = true; quad.Visible = true; }
+		}
+
 		public void ShowFor(float currentHealth, float maxHealth)
 		{
 			visible3d = true;
-			hideTimer = hideAfterSeconds;
+			if (!_persistent) hideTimer = hideAfterSeconds;
 			quad.Visible = true;
 			UpdateBar(currentHealth, maxHealth);
 		}
@@ -75,6 +83,21 @@ namespace CashoutCasino.UI
 
 		public override void _Process(double delta)
 		{
+			// Auto-find the active camera when not explicitly set (needed for persistent bars)
+			if (localCamera == null || !IsInstanceValid(localCamera))
+				localCamera = GetViewport()?.GetCamera3D();
+
+			if (_persistent)
+			{
+				if (localCamera != null)
+				{
+					Vector3 dir = (localCamera.GlobalPosition - GlobalPosition).Normalized();
+					if (dir.LengthSquared() > 0.001f)
+						LookAt(localCamera.GlobalPosition, Vector3.Up);
+				}
+				return;
+			}
+
 			if (!visible3d) return;
 
 			hideTimer -= (float)delta;

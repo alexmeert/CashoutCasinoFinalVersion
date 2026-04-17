@@ -82,9 +82,20 @@ public partial class UserNpm : Control
 	public void ColorChangeRPC(int n){
 		GD.Print($"ColorChangeRPC called with n={n}");
 		GD.Print($"IsServer: {GenericCore.Instance.IsServer}");
-		
+
 		if(GenericCore.Instance.IsServer)
 		{
+			// Reject if another player already has this color
+			foreach(var node in GetTree().GetNodesInGroup("NPM"))
+			{
+				if(node is UserNpm other && other != this && other.ColorSelection == n)
+				{
+					GD.Print($"Color {n} already taken — rejecting change for peer {Multiplayer.GetRemoteSenderId()}");
+					RpcId(Multiplayer.GetRemoteSenderId(), MethodName.RejectColorChange, ColorSelection);
+					return;
+				}
+			}
+
 			//Why not use Multiplayer.IsServer? Because that'll work if it's not connected to anything
 			ColorSelection = n;
 			switch(n){
@@ -117,6 +128,14 @@ public partial class UserNpm : Control
 		}
 	}
 	
+	// Sent by the server to revert a rejected color pick on the local client
+	[Rpc(MultiplayerApi.RpcMode.Authority, CallLocal=false, TransferMode=MultiplayerPeer.TransferModeEnum.Reliable)]
+	public void RejectColorChange(int previousColor)
+	{
+		GD.Print($"Color pick rejected by server — reverting to {previousColor}");
+		ColorOptionButton.Selected = previousColor;
+	}
+
 	public void OnWeaponClassChange(int n)
 	{
 		if(MyNetID.IsLocal)

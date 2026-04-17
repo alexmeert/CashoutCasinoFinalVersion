@@ -20,6 +20,7 @@ namespace CashoutCasino.Weapon
 				{
 					weapons.Add(w);
 					w.Visible = false;
+					w.OnUnequip();
 				}
 			}
 		}
@@ -28,8 +29,8 @@ namespace CashoutCasino.Weapon
 		{
 			foreach (var w in weapons)
 			{
-				w.Reparent(this, true);
 				w.Visible = false;
+				w.OnUnequip();
 			}
 
 			if (weapons.Count > 0)
@@ -69,6 +70,7 @@ namespace CashoutCasino.Weapon
 			{
 				current.CancelReload();
 				current.Visible = false;
+				current.OnUnequip();
 			}
 
 			EquipWeapon(slotIndex);
@@ -81,6 +83,7 @@ namespace CashoutCasino.Weapon
 			var w = weapons[index];
 			w.Visible = true;
 			w.FireCamera = PlayerCamera;
+			w.OnEquip();
 		}
 
 		public bool CurrentWeaponHoldToFire()

@@ -85,11 +85,11 @@ public partial class GameMaster : Node
 					ready++;
 			}
 
-			_playersReady.Text = connected < 1
-				? "Waiting on player..."
+			_playersReady.Text = connected < 2
+				? $"Need at least 2 players ({connected}/2 connected)..."
 				: $"{ready}/{connected} players ready.";
 
-			if (connected >= 1 && ready == connected)
+			if (connected >= 2 && ready == connected)
 			{
 				GameStarted = true;
 				GD.Print("[GameMaster] All players ready, starting game!");

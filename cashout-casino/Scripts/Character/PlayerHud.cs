@@ -17,6 +17,7 @@ namespace CashoutCasino.UI
 		private Label currencyLabel;
 		private Label atmDebtLabel;
 		private ProgressBar healthBar;
+		private Label healthLabel;
 		private StyleBoxFlat healthFillStyle;
 		private VBoxContainer killFeedContainer;
 		private ColorRect damageOverlay;
@@ -52,6 +53,15 @@ namespace CashoutCasino.UI
 				healthFillStyle.CornerRadiusBottomLeft  = 3;
 				healthFillStyle.CornerRadiusBottomRight = 3;
 				healthBar.AddThemeStyleboxOverride("fill", healthFillStyle);
+
+				// Dynamic HP text label placed above the bar inside the same VBox.
+				healthLabel = new Label { Text = "100 / 100", HorizontalAlignment = HorizontalAlignment.Center };
+				var ls = new LabelSettings { FontSize = 18, FontColor = new Color(1f, 1f, 1f, 0.9f) };
+				if (KillFeedFont != null) ls.Font = KillFeedFont;
+				healthLabel.LabelSettings = ls;
+				var vbox = healthBar.GetParent();
+				vbox?.AddChild(healthLabel);
+				vbox?.MoveChild(healthLabel, 0); // put text above the bar
 			}
 
 			if (atmDebtLabel != null)
@@ -154,6 +164,9 @@ namespace CashoutCasino.UI
 			float r = Mathf.Lerp(1f, 0.1f, ratio);
 			float g = Mathf.Lerp(0.1f, 0.85f, ratio);
 			healthFillStyle.BgColor = new Color(r, g, 0.1f, 1f);
+
+			if (healthLabel != null)
+				healthLabel.Text = $"{(int)current} / {(int)max}";
 		}
 
 		public void AddKillEntry(string killerName, string weaponKind, string victimName, int rewardAmount = 0, bool isHeadshot = false)

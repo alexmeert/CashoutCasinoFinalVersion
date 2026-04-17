@@ -7,6 +7,7 @@ namespace CashoutCasino.Weapon
 	{
 		[Export] public Marker3D LeftMuzzle;
 		[Export] public Marker3D RightMuzzle;
+		[Export] public Node3D LeftPistolNode;
 
 		private bool leftNext = true;
 
@@ -22,6 +23,17 @@ namespace CashoutCasino.Weapon
 			maxAmmo      = 100;
 			magSize      = 20;
 			base._Ready();
+			if (LeftPistolNode != null) LeftPistolNode.Visible = false;
+		}
+
+		public override void OnEquip()
+		{
+			if (LeftPistolNode != null) LeftPistolNode.Visible = true;
+		}
+
+		public override void OnUnequip()
+		{
+			if (LeftPistolNode != null) LeftPistolNode.Visible = false;
 		}
 
 		public override bool Fire(Vector3 direction, CashoutCasino.Character.Character owner)

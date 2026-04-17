@@ -2,10 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cxj1y7wlgugvl" path="res://Scripts/Character/Player.cs" id="1"]
 [ext_resource type="Script" uid="uid://74q1uh0jxy77" path="res://Scripts/Weapon/WeaponManager.cs" id="2"]
-[ext_resource type="AudioStream" uid="uid://mj6i4sqcb0na" path="res://Assets/Audio/SFX/Weapons/Rifle/RifleShot.mp3" id="2_u0thl"]
+[ext_resource type="AudioStream" uid="uid://dk2oegsws5biq" path="res://Assets/Audio/SFX/Weapons/Rifle/RifleShot.mp3" id="2_u0thl"]
 [ext_resource type="PackedScene" uid="uid://jjmbwwxo3f14" path="res://Packed Scenes/Weapon/AssaultRifle.tscn" id="3"]
 [ext_resource type="AudioStream" uid="uid://cpl2pwiwdngag" path="res://Assets/Audio/SFX/Weapons/Rifle/RifleReload.mp3" id="3_j4b6j"]
-[ext_resource type="PackedScene" uid="uid://cs3lkmqn0ldf4" path="res://Packed Scenes/Weapon/DualPistols.tscn" id="4"]
 [ext_resource type="AudioStream" uid="uid://dbikvlobg1yup" path="res://Assets/Audio/SFX/Weapons/Shotgun/ShotgunShot.mp3" id="4_r0712"]
 [ext_resource type="PackedScene" uid="uid://cn70t0now5k1c" path="res://Packed Scenes/Weapon/Shotgun.tscn" id="5"]
 [ext_resource type="AudioStream" uid="uid://dp30hbvvjymoi" path="res://Assets/Audio/SFX/Weapons/Shotgun/ShotgunReload.mp3" id="5_uigg4"]
@@ -4905,8 +4904,10 @@ _data = {
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0skwq"]
 radius = 0.30566406
 
-[node name="Player" type="CharacterBody3D" unique_id=920529542 node_paths=PackedStringArray("FpAnimPlayer", "FpWeaponManager", "ShootAudioPlayer") groups=["Player"]]
+[node name="Player" type="CharacterBody3D" unique_id=920529542 node_paths=PackedStringArray("FpAnimPlayer", "FpWeaponManager", "ShootAudioPlayer", "TpAnimPlayer") groups=["Player"]]
 script = ExtResource("1")
+weaponManagerPath = NodePath("Armature/Skeleton3D/BoneAttachmentRightHand/WeaponManager")
+jumpForce = 8.0
 FpAnimPlayer = NodePath("FirstPersonPlayer/FirstPersonAnimationPlayer")
 FpWeaponManager = NodePath("FirstPersonPlayer/WeaponManager")
 ShootAudioPlayer = NodePath("AudioStreamPlayer3D")
@@ -4916,6 +4917,7 @@ ShotgunShootSound = ExtResource("4_r0712")
 ShotgunReloadSound = ExtResource("5_uigg4")
 PistolShootSound = ExtResource("6_is2h6")
 PistolReloadSound = ExtResource("7_bhl4u")
+TpAnimPlayer = NodePath("ThirdPersonAnimationPlayer")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=111222333]
 replication_config = SubResource("SceneReplicationConfig_player")
@@ -4958,19 +4960,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraHolder" unique_id=180508122]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.16725957, -0.14992869)
-
-[node name="WeaponManager" type="Node3D" parent="CameraHolder/Camera3D" unique_id=143208665]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.7131607, -0.15189469)
-script = ExtResource("2")
-
-[node name="AssaultRifle" parent="CameraHolder/Camera3D/WeaponManager" unique_id=2146712028 instance=ExtResource("3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17920679, 1.0096756, -0.50785905)
-
-[node name="DualPistols" parent="CameraHolder/Camera3D/WeaponManager" unique_id=726762643 instance=ExtResource("4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1662817, 0)
-
-[node name="Shotgun" parent="CameraHolder/Camera3D/WeaponManager" unique_id=521789765 instance=ExtResource("5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1662816, -0.009454191)
 
 [node name="Armature" type="Node3D" parent="." unique_id=946939126]
 transform = Transform3D(-0.003, -2.6226832e-10, 1.1464113e-17, 0, -1.3113417e-10, -0.003, 2.6226832e-10, -0.003, 1.3113417e-10, 0, 0, 0)
@@ -5208,14 +5197,57 @@ bones/32/position = Vector3(-2.0004827e-06, 20.214231, -4.4703134e-07)
 bones/32/rotation = Quaternion(-1.07451356e-07, 1.1420416e-06, -1.3200115e-06, 1)
 bones/32/scale = Vector3(1.0000001, 0.9999999, 0.99999994)
 
+[node name="BoneAttachmentRightHand" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=458226966]
+transform = Transform3D(0.6246784, 0.2893957, 0.7252768, 0.7807178, -0.21240407, -0.58767664, -0.016019842, 0.9333458, -0.35862067, -106.594986, -55.92354, -231.73442)
+bone_name = "mixamorig_RightHandIndex3"
+bone_idx = 21
+
+[node name="WeaponManager" type="Node3D" parent="Armature/Skeleton3D/BoneAttachmentRightHand" unique_id=143208665]
+transform = Transform3D(-104.11308, 2.6698866, -130.11963, -48.232693, -155.55766, 35.400658, -120.87956, 59.770138, 97.94623, 189.19153, -25.539352, -5.7879906)
+script = ExtResource("2")
+
+[node name="AssaultRifle" parent="Armature/Skeleton3D/BoneAttachmentRightHand/WeaponManager" unique_id=2146712028 instance=ExtResource("3")]
+transform = Transform3D(0.6627307, 0.19742846, -0.72236407, 0.71734375, 0.109517075, 0.6880575, 0.21495327, -0.97418076, -0.06904342, 0.75427467, -0.2891039, 0.8770151)
+
+[node name="RightPistol" type="Node3D" parent="Armature/Skeleton3D/BoneAttachmentRightHand/WeaponManager" unique_id=726762643 node_paths=PackedStringArray("LeftMuzzle", "RightMuzzle", "LeftPistolNode")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1662817, 0)
+script = ExtResource("11_ijtlc")
+LeftMuzzle = NodePath("../../../BoneAttachmentLeftHand/LeftPistol/LeftMarker")
+RightMuzzle = NodePath("RightMarker")
+LeftPistolNode = NodePath("../../../BoneAttachmentLeftHand/LeftPistol")
+
+[node name="blockbench_export" parent="Armature/Skeleton3D/BoneAttachmentRightHand/WeaponManager/RightPistol" unique_id=1799607304 instance=ExtResource("12_wbcqo")]
+transform = Transform3D(-0.3061291, 0.12241106, -0.9440878, 0.894812, 0.37551472, -0.24146184, 0.3249616, -0.9186987, -0.2244909, 0.65009993, -1.5592277, 1.8805673)
+
+[node name="RightMarker" type="Marker3D" parent="Armature/Skeleton3D/BoneAttachmentRightHand/WeaponManager/RightPistol" unique_id=1399286944]
+transform = Transform3D(-0.3061291, 0.12241106, -0.9440878, 0.894812, 0.37551472, -0.24146184, 0.3249616, -0.9186987, -0.2244909, 0.8849998, -1.1296394, 0.9189439)
+
+[node name="Shotgun" parent="Armature/Skeleton3D/BoneAttachmentRightHand/WeaponManager" unique_id=521789765 instance=ExtResource("5")]
+transform = Transform3D(0.70635104, 0.1740258, -0.68613535, 0.6766535, 0.11863735, 0.72668, 0.2078625, -0.977568, -0.03395559, 0.3765046, -0.040130347, 0.7176311)
+
 [node name="BASE_Low Poly Man" type="MeshInstance3D" parent="Armature/Skeleton3D" unique_id=35916661]
 mesh = SubResource("ArrayMesh_t8hoq")
 skin = SubResource("Skin_oo13o")
+
+[node name="BoneAttachmentLeftHand" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=236954585]
+transform = Transform3D(0.8041326, 0.24393985, -0.5420922, -0.504246, 0.7628534, -0.4047106, 0.314812, 0.5987888, 0.7364407, 93.89325, 68.13239, -282.01367)
+bone_name = "mixamorig_LeftHand"
+bone_idx = 10
+
+[node name="LeftPistol" type="Node3D" parent="Armature/Skeleton3D/BoneAttachmentLeftHand" unique_id=1820118524]
+transform = Transform3D(1, 2.9802322e-08, 1.4901161e-08, 2.9802322e-08, 1, 2.9802322e-08, -2.9802322e-08, 0, 1, 0, 0, 0)
+
+[node name="blockbench_export2" parent="Armature/Skeleton3D/BoneAttachmentLeftHand/LeftPistol" unique_id=962484517 instance=ExtResource("12_wbcqo")]
+transform = Transform3D(25.955658, -156.66255, 50.605656, 49.524452, -41.427956, -153.65163, 157.00764, 38.96598, 40.099987, 139.99023, 107.97892, -43.8992)
+
+[node name="LeftMarker" type="Marker3D" parent="Armature/Skeleton3D/BoneAttachmentLeftHand/LeftPistol" unique_id=657206488]
+transform = Transform3D(-144.00233, -56.567043, 61.97774, -25.997377, -86.968346, -139.77975, 79.782295, -130.43945, 66.31833, -21.617714, 73.04624, -31.454498)
 
 [node name="ThirdPersonAnimationPlayer" type="AnimationPlayer" parent="." unique_id=2130392242]
 libraries/ = SubResource("AnimationLibrary_nwlvs")
 
 [node name="FirstPersonPlayer" type="CharacterBody3D" parent="." unique_id=1653549429]
+visible = false
 
 [node name="Camera3D" type="Camera3D" parent="FirstPersonPlayer" unique_id=760489150]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
@@ -5294,16 +5326,16 @@ script = ExtResource("11_ijtlc")
 LeftMuzzle = NodePath("LeftMarker")
 RightMuzzle = NodePath("RightMarker")
 
-[node name="blockbench_export2" parent="FirstPersonPlayer/WeaponManager/DualPistols" unique_id=962484517 instance=ExtResource("12_wbcqo")]
+[node name="blockbench_export2" parent="FirstPersonPlayer/WeaponManager/DualPistols" unique_id=2076297185 instance=ExtResource("12_wbcqo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26, -1.183, -0.376)
 
-[node name="blockbench_export" parent="FirstPersonPlayer/WeaponManager/DualPistols" unique_id=1799607304 instance=ExtResource("12_wbcqo")]
+[node name="blockbench_export" parent="FirstPersonPlayer/WeaponManager/DualPistols" unique_id=1457325609 instance=ExtResource("12_wbcqo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26008147, -1.1833578, -0.37646884)
 
-[node name="RightMarker" type="Marker3D" parent="FirstPersonPlayer/WeaponManager/DualPistols" unique_id=1399286944]
+[node name="RightMarker" type="Marker3D" parent="FirstPersonPlayer/WeaponManager/DualPistols" unique_id=570265787]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26008147, -0.10984782, -0.48608774)
 
-[node name="LeftMarker" type="Marker3D" parent="FirstPersonPlayer/WeaponManager/DualPistols" unique_id=657206488]
+[node name="LeftMarker" type="Marker3D" parent="FirstPersonPlayer/WeaponManager/DualPistols" unique_id=640369504]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25980663, -0.10984782, -0.48608774)
 
 [node name="Shotgun" type="Node3D" parent="FirstPersonPlayer/WeaponManager" unique_id=1004360983 node_paths=PackedStringArray("Muzzle")]
