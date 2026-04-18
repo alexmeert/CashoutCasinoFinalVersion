@@ -218,12 +218,12 @@ public partial class LobbyStreamlined : Node
         AgentPeer = new ENetMultiplayerPeer();
 
         Error err = AgentPeer.CreateServer(PortMinimum, 1000);
-        AgentAPI.MultiplayerPeer = AgentPeer;
         if (err != Error.Ok)
         {
-            GD.Print(err.ToString());
+            GD.Print("Master server creation failed: " + err.ToString());
             return err;
         }
+        AgentAPI.MultiplayerPeer = AgentPeer;
         GD.Print("Master Server Created!");
         IsWanLobbyConnected = true;
         IsWanLobbyServer = true;

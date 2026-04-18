@@ -24,6 +24,7 @@ font_size = 50
 [node name="CountdownTimer" type="CanvasLayer" unique_id=995573639]
 layer = 15
 script = ExtResource("1_j0sau")
+defaultDuration = 300.0
 autoStart = true
 
 [node name="Panel" type="Panel" parent="." unique_id=2122910979]

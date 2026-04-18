@@ -53,6 +53,28 @@ namespace CashoutCasino.UI
 				: WinnerData.Kills;
 			statsLabel.Text = $"Score: {WinnerData.Score}     K/D: {kd:F2}     ({WinnerData.Kills}K / {WinnerData.Deaths}D)";
 
+			// Leave game button anchored to bottom-center of screen
+			var leaveBtn = new Button { Text = "Leave Game" };
+			leaveBtn.CustomMinimumSize = new Vector2(200, 48);
+			leaveBtn.AnchorLeft   = 0.5f;
+			leaveBtn.AnchorRight  = 0.5f;
+			leaveBtn.AnchorTop    = 1.0f;
+			leaveBtn.AnchorBottom = 1.0f;
+			leaveBtn.OffsetLeft   = -100f;
+			leaveBtn.OffsetRight  =  100f;
+			leaveBtn.OffsetTop    = -80f;
+			leaveBtn.OffsetBottom = -32f;
+			leaveBtn.GrowHorizontal = Control.GrowDirection.Both;
+			leaveBtn.GrowVertical   = Control.GrowDirection.Begin;
+			leaveBtn.Pressed += OnLeavePressed;
+			GetNode<CanvasLayer>("CanvasLayer").AddChild(leaveBtn);
+		}
+
+		private void OnLeavePressed()
+		{
+			GenericCore.Instance?.DisconnectFromGame();
+			LobbyStreamlined.Instance?.DisconnectFromLobbySystem();
+			GetTree().ChangeSceneToFile("res://NetworkCore/WanLobbySystem/generic_lobby_system.tscn");
 		}
 	}
 }

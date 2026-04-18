@@ -1453,7 +1453,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 36)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -36)
 
 [node name="CountdownTimer" parent="." unique_id=436124620 instance=ExtResource("ct_1")]
-defaultDuration = 600.0
 
 [node name="Crates" type="CSGCombiner3D" parent="." unique_id=358490571]
 material_override = SubResource("StandardMaterial3D_13me4")
