@@ -25,6 +25,9 @@ namespace CashoutCasino.UI
 		private Control weaponPanel;
 		private Control reticle;
 		private RingDrawer _reloadRing;
+		private Label _preGameLabel;
+		[Export] public AudioStreamPlayer CurrencyGainSfx;
+		private int _lastCurrency;
 
 		private static readonly Font KillFeedFont =
 			GD.Load<Font>("res://Assets/upheaval/upheavtt.ttf");
@@ -79,6 +82,57 @@ namespace CashoutCasino.UI
 			_reloadRing.ArcColor     = new Color(1f, 0.85f, 0.2f, 1f);
 			_reloadRing.Visible      = false;
 			AddChild(_reloadRing);
+
+			// Big centered label for pre-game countdown.
+			var preGameLs = new LabelSettings
+			{
+				FontSize     = 120,
+				FontColor    = new Color(1f, 0.85f, 0.2f, 1f),
+				OutlineSize  = 6,
+				OutlineColor = new Color(0f, 0f, 0f, 0.85f),
+			};
+			if (KillFeedFont != null) preGameLs.Font = KillFeedFont;
+			_preGameLabel = new Label
+			{
+				HorizontalAlignment = HorizontalAlignment.Center,
+				VerticalAlignment   = VerticalAlignment.Center,
+				LabelSettings       = preGameLs,
+				AnchorLeft          = 0.5f,
+				AnchorRight         = 0.5f,
+				AnchorTop           = 0.38f,
+				AnchorBottom        = 0.38f,
+				GrowHorizontal      = Control.GrowDirection.Both,
+				GrowVertical        = Control.GrowDirection.Both,
+				OffsetLeft          = -200f,
+				OffsetRight         =  200f,
+				OffsetTop           =  -80f,
+				OffsetBottom        =   80f,
+				Visible             = false,
+			};
+			AddChild(_preGameLabel);
+		}
+
+		public void ShowPreGameCountdown(int seconds)
+		{
+			if (_preGameLabel == null) return;
+			_preGameLabel.Visible = true;
+			if (seconds > 0)
+			{
+				_preGameLabel.Text = seconds.ToString();
+				if (_preGameLabel.LabelSettings != null)
+					_preGameLabel.LabelSettings.FontColor = new Color(1f, 0.85f, 0.2f, 1f);
+			}
+			else
+			{
+				_preGameLabel.Text = "GO!";
+				if (_preGameLabel.LabelSettings != null)
+					_preGameLabel.LabelSettings.FontColor = new Color(0.2f, 1f, 0.3f, 1f);
+			}
+		}
+
+		public void HidePreGameCountdown()
+		{
+			if (_preGameLabel != null) _preGameLabel.Visible = false;
 		}
 
 		public void SetAsLocalInstance()
@@ -101,6 +155,9 @@ namespace CashoutCasino.UI
 
 		public void OnCurrencyChanged(int newAmount)
 		{
+			if (newAmount > _lastCurrency)
+				CurrencyGainSfx?.Play();
+			_lastCurrency = newAmount;
 			currencyLabel.Text = $"${newAmount}";
 		}
 

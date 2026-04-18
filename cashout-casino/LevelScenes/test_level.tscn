@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bfbwvqh3x1oaf" path="res://Assets/2D-Textures-Assets/seamless_pattern_16x16px_SpriteSheet_ 464.png" id="1_pxjhl"]
 [ext_resource type="Texture2D" uid="uid://ded85ss0jo3y0" path="res://Assets/2D-Textures-Assets/seamless_pattern_16x16px_SpriteSheet_ 255.png" id="3_14b8f"]
-[ext_resource type="PackedScene" path="res://Packed Scenes/Character/AIEnemy.tscn" id="3_uj3dl"]
+[ext_resource type="PackedScene" uid="uid://c32xjfxs6pgxg" path="res://Packed Scenes/Character/AIEnemy.tscn" id="3_uj3dl"]
 [ext_resource type="Texture2D" uid="uid://bsvg5atde2nrx" path="res://Assets/2D-Textures-Assets/seamless_pattern_16x16px_SpriteSheet_ 91.png" id="4_or88q"]
 [ext_resource type="Texture2D" uid="uid://x2sngaa2lutv" path="res://Assets/2D-Textures-Assets/seamless_pattern_16x16px_SpriteSheet_ 84.png" id="4_ti5k4"]
 [ext_resource type="PackedScene" uid="uid://ccj38uyad338r" path="res://Assets/3D-Models/ManualMeltdownMachine.gltf" id="8_jnxa6"]
@@ -1444,16 +1444,16 @@ shape = SubResource("BoxShape3D_81db5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
 
 [node name="P2Start" type="Marker3D" parent="." unique_id=845177657]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.034775, 2, -2)
 
 [node name="P3Start" type="Marker3D" parent="." unique_id=1163433936]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 36)
 
 [node name="P4Start" type="Marker3D" parent="." unique_id=1588307039]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -36)
 
 [node name="CountdownTimer" parent="." unique_id=436124620 instance=ExtResource("ct_1")]
-defaultDuration = 300.0
+defaultDuration = 600.0
 
 [node name="Crates" type="CSGCombiner3D" parent="." unique_id=358490571]
 material_override = SubResource("StandardMaterial3D_13me4")

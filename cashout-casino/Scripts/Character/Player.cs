@@ -878,6 +878,12 @@ namespace CashoutCasino.Character
 			hud?.OnReloadComplete();
 		}
 
+		public void SetFrozenForPreGame(bool frozen)
+		{
+			SetPhysicsProcess(!frozen);
+			if (frozen) Velocity = Vector3.Zero;
+		}
+
 		public override void RequestAIDecision() { }
 		public override void OnInputAction(string action) { }
 	}

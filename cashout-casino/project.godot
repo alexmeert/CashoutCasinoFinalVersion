@@ -35,6 +35,7 @@ run/main_scene=""
 [global_group]
 
 NPM=""
+AIEnemies=""
 
 [input]
 

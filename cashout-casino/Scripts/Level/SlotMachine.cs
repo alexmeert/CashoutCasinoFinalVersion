@@ -19,6 +19,9 @@ namespace CashoutCasino
 
 		private readonly RandomNumberGenerator rng = new RandomNumberGenerator();
 
+		[Export] public AudioStreamPlayer3D WinSfx;
+		[Export] public AudioStreamPlayer3D LoseSfx;
+
 		public override void _Ready()
 		{
 			rng.Randomize();
@@ -130,18 +133,22 @@ namespace CashoutCasino
 				case 1:
 					payout = 0;
 					resultText = $"Nothing!  -${cost}";
+					LoseSfx?.Play();
 					break;
 				case 2:
 					payout = cost / 2;
 					resultText = $"Half back!  +${payout}";
+					WinSfx?.Play();
 					break;
 				case 3:
 					payout = cost;
 					resultText = $"Return!  +${payout}";
+					WinSfx?.Play();
 					break;
 				default: // 4
 					payout = cost * 2;
 					resultText = $"DOUBLE!  +${payout}";
+					WinSfx?.Play();
 					break;
 			}
 

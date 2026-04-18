@@ -20,6 +20,7 @@ namespace CashoutCasino
 		private Character.Player _playerInRange;
 		private CanvasLayer _shopUI;
 		private bool _menuOpen = false;
+		[Export] public AudioStreamPlayer PurchaseSfx;
 
 		public override void _Ready()
 		{
@@ -107,6 +108,7 @@ namespace CashoutCasino
 			_playerInRange.ModifyCurrency(-price);
 			_playerInRange.RpcId(1, "ServerApplyUpgrade", item,
 				SpeedBonus, DamageBonus, HealthBonus);
+			PurchaseSfx?.Play();
 
 			string msg = item switch
 			{

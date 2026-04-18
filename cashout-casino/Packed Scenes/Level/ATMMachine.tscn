@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dx4ct5cmj1iqe" path="res://Scripts/Level/ATMMachine.cs" id="1"]
 [ext_resource type="PackedScene" uid="uid://0te1uhoxru56" path="res://Assets/3D-Models/ATM-Machine.gltf" id="2"]
+[ext_resource type="AudioStream" uid="uid://d1ashexmgfib4" path="res://Assets/Audio/SFX/ATMWithdrawl.mp3" id="3_kyvtj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_body"]
 size = Vector3(1, 2, 0.6)
@@ -12,8 +13,9 @@ radius = 2.0
 [sub_resource type="QuadMesh" id="QuadMesh_cooldown"]
 size = Vector2(1, 0.12)
 
-[node name="ATMMachine" type="StaticBody3D" unique_id=130021698]
+[node name="ATMMachine" type="StaticBody3D" unique_id=130021698 node_paths=PackedStringArray("WithdrawSfx")]
 script = ExtResource("1")
+WithdrawSfx = NodePath("Withdraw")
 
 [node name="Model" parent="." unique_id=536955300 instance=ExtResource("2")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -62,3 +64,8 @@ show_percentage = false
 [node name="Quad" type="MeshInstance3D" parent="CooldownBar" unique_id=2090327976]
 visible = false
 mesh = SubResource("QuadMesh_cooldown")
+
+[node name="Withdraw" type="AudioStreamPlayer3D" parent="." unique_id=1629668033]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+stream = ExtResource("3_kyvtj")
+volume_db = -15.0

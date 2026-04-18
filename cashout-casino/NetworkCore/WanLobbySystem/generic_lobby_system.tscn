@@ -2,7 +2,11 @@
 
 [ext_resource type="Script" uid="uid://buq7bi58l3fu1" path="res://NetworkCore/WanLobbySystem/BetterLobby/LobbyStreamlined.cs" id="1_nacce"]
 [ext_resource type="Script" uid="uid://b2fb80xs807f4" path="res://NetworkCore/NetworkCore.cs" id="2_nacce"]
+[ext_resource type="FontFile" uid="uid://ubdv0skyrbjb" path="res://Assets/upheaval/upheavtt.ttf" id="2_p6o7m"]
 [ext_resource type="PackedScene" uid="uid://bfxnwdbaagl2n" path="res://MainScene/game_root.tscn" id="3_nacce"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dijh2"]
+font_size = 60
 
 [node name="AbsoluteRoot" type="Node" unique_id=1990134794]
 
@@ -14,7 +18,7 @@ PortMinimum = 9000
 PortMaximum = 10000
 AgentSpawner = NodePath("HBoxContainer/ColorRect2/ActiveGames/ActiveGames/MultiplayerSpawner")
 GameNameBox = NodePath("HBoxContainer/ColorRect/MarginContainer/LeftMenu/GameName")
-MaxGameTime = 700.0
+MaxGameTime = 900.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GenericLobbySystem" unique_id=791811500]
 anchors_preset = 15
@@ -27,7 +31,7 @@ alignment = 1
 [node name="ColorRect" type="ColorRect" parent="GenericLobbySystem/HBoxContainer" unique_id=2139474412]
 layout_mode = 2
 size_flags_horizontal = 3
-color = Color(0, 0.6, 0, 1)
+color = Color(1.2513996e-06, 0.3887204, 0.504007, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="GenericLobbySystem/HBoxContainer/ColorRect" unique_id=368824437]
 custom_minimum_size = Vector2(200, 200)
@@ -51,23 +55,29 @@ alignment = 1
 
 [node name="Label" type="Label" parent="GenericLobbySystem/HBoxContainer/ColorRect/MarginContainer/LeftMenu" unique_id=684644334]
 layout_mode = 2
-text = "REALLY COOL LOBBY SYSTEM"
+theme_override_fonts/font = ExtResource("2_p6o7m")
+text = "CASHOUT CASINO"
+label_settings = SubResource("LabelSettings_dijh2")
 horizontal_alignment = 1
 
 [node name="GameName" type="TextEdit" parent="GenericLobbySystem/HBoxContainer/ColorRect/MarginContainer/LeftMenu" unique_id=1429459134]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_p6o7m")
+theme_override_font_sizes/font_size = 25
 placeholder_text = "Enter Game Name"
 
 [node name="Button" type="Button" parent="GenericLobbySystem/HBoxContainer/ColorRect/MarginContainer/LeftMenu" unique_id=2128072017]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_p6o7m")
+theme_override_font_sizes/font_size = 25
 text = "Create Game"
 
 [node name="ColorRect2" type="ColorRect" parent="GenericLobbySystem/HBoxContainer" unique_id=2027901455]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 3
-color = Color(0.03529412, 1, 0.050980393, 1)
+color = Color(0, 0.3882353, 0.5058824, 1)
 
 [node name="ActiveGames" type="MarginContainer" parent="GenericLobbySystem/HBoxContainer/ColorRect2" unique_id=1169808374]
 layout_mode = 1

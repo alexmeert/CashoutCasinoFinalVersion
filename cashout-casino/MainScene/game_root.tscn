@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://b6l62hns0p8n3" path="res://NetworkCore/GenericCore.cs" id="1_ujqun"]
 [ext_resource type="Script" uid="uid://b2fb80xs807f4" path="res://NetworkCore/NetworkCore.cs" id="2_o70cg"]
 [ext_resource type="Script" uid="uid://b4ksjok2k4rhy" path="res://System/GameMaster.cs" id="3_o70cg"]
+[ext_resource type="AudioStream" uid="uid://c6qreulxnxstt" path="res://Assets/Audio/Music/LobbyMusic.mp3" id="4_eebfu"]
+[ext_resource type="AudioStream" uid="uid://b7asqx75fp5yo" path="res://Assets/Audio/Music/InGameMusic.mp3" id="5_7p18k"]
+[ext_resource type="AudioStream" uid="uid://dk08fcr6nvtpm" path="res://Assets/Audio/SFX/Ambiance.mp3" id="6_7p18k"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_o70cg"]
 properties/0/path = NodePath("GameStatus:text")
@@ -43,6 +46,7 @@ script = ExtResource("2_o70cg")
 SpawnInexZeroOnConnect = true
 
 [node name="HostButton" type="Button" parent="CanvasLayer" unique_id=1783935955]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -58,6 +62,7 @@ scale = Vector2(1.1741682, 1.1741682)
 text = "Host"
 
 [node name="ClientButton" type="Button" parent="CanvasLayer" unique_id=1755454888]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -79,7 +84,7 @@ _spawnable_scenes = PackedStringArray("uid://b12m7brj7s7hi", "uid://dpbhbh3ssey3
 spawn_path = NodePath("..")
 script = ExtResource("2_o70cg")
 
-[node name="GameMaster" type="Node" parent="." unique_id=490744433 node_paths=PackedStringArray("NpmSpawner", "LevelSpawner", "_serverStatus", "_playersReady", "_hostButton", "_clientButton", "_lobbyCanvasLayer")]
+[node name="GameMaster" type="Node" parent="." unique_id=490744433 node_paths=PackedStringArray("NpmSpawner", "LevelSpawner", "_serverStatus", "_playersReady", "_hostButton", "_clientButton", "_lobbyCanvasLayer", "LobbyMusicPlayer", "GameMusicPlayer", "AmbiancePlayer")]
 script = ExtResource("3_o70cg")
 NpmSpawner = NodePath("../CanvasLayer/Control/GridContainer/MultiplayerSpawner")
 LevelSpawner = NodePath("../MainGameSpace/MultiplayerSpawner")
@@ -88,6 +93,9 @@ _playersReady = NodePath("../PlayersReady")
 _hostButton = NodePath("../CanvasLayer/HostButton")
 _clientButton = NodePath("../CanvasLayer/ClientButton")
 _lobbyCanvasLayer = NodePath("../CanvasLayer")
+LobbyMusicPlayer = NodePath("../LobbyMusic")
+GameMusicPlayer = NodePath("../GameMusic")
+AmbiancePlayer = NodePath("../Ambiance")
 
 [node name="GameStatus" type="Label" parent="." unique_id=1992711105]
 anchors_preset = 8
@@ -101,7 +109,6 @@ offset_right = 20.0
 offset_bottom = 109.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "game status"
 
 [node name="PlayersReady" type="Label" parent="." unique_id=43087125]
 anchors_preset = 8
@@ -115,7 +122,6 @@ offset_right = 20.0
 offset_bottom = 63.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "playersready"
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=300581954]
 replication_config = SubResource("SceneReplicationConfig_o70cg")
@@ -128,6 +134,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="LobbyMusic" type="AudioStreamPlayer" parent="." unique_id=1094112693]
+stream = ExtResource("4_eebfu")
+volume_db = -40.0
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="." unique_id=2120953263]
+stream = ExtResource("5_7p18k")
+volume_db = -30.0
+
+[node name="Ambiance" type="AudioStreamPlayer" parent="." unique_id=1449396118]
+stream = ExtResource("6_7p18k")
+volume_db = -30.0
 
 [connection signal="pressed" from="CanvasLayer/HostButton" to="." method="CreateLocalGame"]
 [connection signal="pressed" from="CanvasLayer/HostButton" to="GameMaster" method="OnServerStarted"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cxj1y7wlgugvl" path="res://Scripts/Character/Player.cs" id="1"]
 [ext_resource type="Script" uid="uid://74q1uh0jxy77" path="res://Scripts/Weapon/WeaponManager.cs" id="2"]
-[ext_resource type="AudioStream" uid="uid://dk2oegsws5biq" path="res://Assets/Audio/SFX/Weapons/Rifle/RifleShot.mp3" id="2_u0thl"]
+[ext_resource type="AudioStream" uid="uid://c2wpcfr0llhrb" path="res://Assets/Audio/SFX/Weapons/Rifle/RifleShot.mp3" id="2_u0thl"]
 [ext_resource type="PackedScene" uid="uid://jjmbwwxo3f14" path="res://Packed Scenes/Weapon/AssaultRifle.tscn" id="3"]
 [ext_resource type="AudioStream" uid="uid://cpl2pwiwdngag" path="res://Assets/Audio/SFX/Weapons/Rifle/RifleReload.mp3" id="3_j4b6j"]
 [ext_resource type="AudioStream" uid="uid://dbikvlobg1yup" path="res://Assets/Audio/SFX/Weapons/Shotgun/ShotgunShot.mp3" id="4_r0712"]
@@ -5418,4 +5418,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_0skwq")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1404701390]
-volume_db = -30.0
+volume_db = -35.0

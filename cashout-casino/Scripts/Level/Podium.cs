@@ -47,11 +47,12 @@ namespace CashoutCasino.UI
 			var winnerLabel = GetNode<Label>(WinnerLabelPath);
 			var statsLabel  = GetNode<Label>(StatsLabelPath);
 
-			winnerLabel.Text = $"  {WinnerData.Name}  ";
+			winnerLabel.Text = $"{WinnerData.Name} is the Winner!";
 			float kd = WinnerData.Deaths > 0
 				? (float)WinnerData.Kills / WinnerData.Deaths
 				: WinnerData.Kills;
-			statsLabel.Text  = $"Score: ${WinnerData.Score}     K/D: {kd:F2}     ({WinnerData.Kills}K / {WinnerData.Deaths}D)";
+			statsLabel.Text = $"Score: {WinnerData.Score}     K/D: {kd:F2}     ({WinnerData.Kills}K / {WinnerData.Deaths}D)";
+
 		}
 	}
 }

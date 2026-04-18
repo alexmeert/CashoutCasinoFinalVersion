@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cgg3gldwl6ev" path="res://Assets/3D-Models/Boots.gltf" id="5_jcquc"]
 [ext_resource type="PackedScene" uid="uid://cvlfv31rwki1i" path="res://Assets/3D-Models/DamageIncrease.gltf" id="6_dbae2"]
 [ext_resource type="PackedScene" uid="uid://cheedxi8467jh" path="res://Assets/3D-Models/HealthUpgrade.gltf" id="7_da5o4"]
+[ext_resource type="AudioStream" uid="uid://db4jhcgyut0hd" path="res://Assets/Audio/SFX/ShopPurchase.mp3" id="8_dbae2"]
 [ext_resource type="Script" uid="uid://bho2g2e6ucuhn" path="res://Scripts/Level/ShopStands.cs" id="99_shop"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g18sr"]
@@ -15,11 +16,12 @@ texture_filter = 0
 [sub_resource type="SphereShape3D" id="SphereShape3D_shop"]
 radius = 2.5
 
-[node name="ShopStands" type="CSGCombiner3D" unique_id=1477661347]
+[node name="ShopStands" type="CSGCombiner3D" unique_id=1477661347 node_paths=PackedStringArray("PurchaseSfx")]
 transform = Transform3D(0.9999708, 0, 0.0076444745, 0, 1, 0, -0.0076444745, 0, 0.9999708, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_g18sr")
 use_collision = true
 script = ExtResource("99_shop")
+PurchaseSfx = NodePath("AudioStreamPlayer")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1867576359]
 transform = Transform3D(0.9999708, 0, -0.0076444745, 0, 1, 0, 0.0076444745, 0, 0.9999708, -0.6469114, -0.087007105, 1.5241566)
@@ -85,3 +87,7 @@ transform = Transform3D(0.4999854, 0, -0.0038222373, 0, 0.5, 0, 0.0038222373, 0,
 
 [node name="blockbench_export3" parent="." unique_id=937355766 instance=ExtResource("7_da5o4")]
 transform = Transform3D(0.28850695, 0.08221132, -0.0022431524, -0.07996539, 0.28232837, 0.06241959, 0.019216344, -0.05943038, 0.2934258, 2.460193, 0.27543682, 3.392753)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1457603297]
+stream = ExtResource("8_dbae2")
+volume_db = -10.0

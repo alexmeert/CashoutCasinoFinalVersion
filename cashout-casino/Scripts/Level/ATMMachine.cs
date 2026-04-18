@@ -24,6 +24,8 @@ namespace CashoutCasino
 		private float cooldownRemaining = 0f;
 		private bool onCooldown = false;
 
+		[Export] public AudioStreamPlayer3D WithdrawSfx;
+
 		public override void _Ready()
 		{
 			promptLabel  = GetNodeOrNull<Label3D>("PromptLabel");
@@ -106,6 +108,7 @@ namespace CashoutCasino
 
 			int loan = Economy.CurrencyEconomy.ATM_LOAN;
 			player.AddAtmDebt(loan);
+			WithdrawSfx?.Play();
 
 			ShowResult($"+${loan} ammo  (debt: -${player.GetAtmDebt()})");
 

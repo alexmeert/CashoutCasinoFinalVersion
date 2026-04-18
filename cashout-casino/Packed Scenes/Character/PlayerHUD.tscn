@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cdww08t1w2wpk" path="res://Assets/KillfeedIcons/shotgun.png" id="3_fb8j3"]
 [ext_resource type="Texture2D" uid="uid://2hv5jys2v8w1" path="res://Assets/KillfeedIcons/pistol.png" id="4_wgfcp"]
 [ext_resource type="Texture2D" uid="uid://c3bjpgrptauqm" path="res://Assets/KillfeedIcons/head.png" id="5_fb8j3"]
+[ext_resource type="AudioStream" uid="uid://dct3cs3sjeg80" path="res://Assets/Audio/SFX/CurrencyGain.mp3" id="8_wgfcp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Panel"]
 content_margin_left = 12.0
@@ -45,13 +46,14 @@ font_color = Color(0.3, 1, 0.4, 1)
 font_size = 13
 font_color = Color(1, 0.3, 0.3, 1)
 
-[node name="PlayerHud" type="CanvasLayer" unique_id=335599664]
+[node name="PlayerHud" type="CanvasLayer" unique_id=335599664 node_paths=PackedStringArray("CurrencyGainSfx")]
 layer = 10
 script = ExtResource("1_5yeb8")
 RifleIcon = ExtResource("2_pdn4l")
 ShotgunIcon = ExtResource("3_fb8j3")
 PistolIcon = ExtResource("4_wgfcp")
 HeadshotIcon = ExtResource("5_fb8j3")
+CurrencyGainSfx = NodePath("AudioStreamPlayer")
 
 [node name="HealthPanel" type="Panel" parent="." unique_id=591257236]
 anchors_preset = 2
@@ -182,3 +184,7 @@ offset_bottom = 10.0
 grow_horizontal = 0
 theme_override_constants/separation = 4
 alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1999050749]
+stream = ExtResource("8_wgfcp")
+volume_db = -10.0

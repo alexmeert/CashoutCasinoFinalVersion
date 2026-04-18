@@ -1,24 +1,22 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene format=3 uid="uid://c32xjfxs6pgxg"]
 
 [ext_resource type="Script" uid="uid://b1sk2ef46dyjv" path="res://Scripts/Character/AIEnemy.cs" id="1_aienemy"]
-[ext_resource type="PackedScene" uid="uid://qn5livmjvmfh" path="res://Packed Scenes/Character/WorldHealthBar.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://b2fqv0eq022po" path="res://Packed Scenes/Character/WorldHealthBar.tscn" id="2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wq457"]
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dvb0v"]
+material = SubResource("StandardMaterial3D_wq457")
 radius = 0.4
 height = 1.8
-material = SubResource("StandardMaterial3D_wq457")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_move"]
 radius = 0.4
 height = 1.8
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hit"]
-radius = 0.5
 height = 1.9
-
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_enemy"]
 properties/0/path = NodePath(".:position")
@@ -31,8 +29,7 @@ properties/2/path = NodePath(".:rotation")
 properties/2/spawn = true
 properties/2/replication_mode = 2
 
-
-[node name="AiEnemy" type="CharacterBody3D" unique_id=701028671 groups=["Enemy"]]
+[node name="AiEnemy" type="CharacterBody3D" unique_id=701028671 groups=["AIEnemies", "Enemy"]]
 script = ExtResource("1_aienemy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1550886387]
@@ -46,16 +43,15 @@ shape = SubResource("CapsuleShape3D_move")
 
 [node name="Hitbox" type="Area3D" parent="." unique_id=1111111101]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-monitoring = false
-monitorable = true
 collision_layer = 2
 collision_mask = 0
+monitoring = false
 
 [node name="HitboxShape" type="CollisionShape3D" parent="Hitbox" unique_id=1111111102]
 shape = SubResource("CapsuleShape3D_hit")
 
-[node name="WorldHealthBar" parent="." instance=ExtResource("2")]
-position = Vector3(0, 2.2, 0)
+[node name="WorldHealthBar" parent="." unique_id=1662315472 instance=ExtResource("2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=623135468]
 replication_config = SubResource("SceneReplicationConfig_enemy")

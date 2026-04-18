@@ -27,6 +27,10 @@ public partial class GameMaster : Node
 	private bool _gameCycleStarted;
 	private ColorRect _lobbyBackground;
 
+	[Export] public AudioStreamPlayer LobbyMusicPlayer;
+	[Export] public AudioStreamPlayer GameMusicPlayer;
+	[Export] public AudioStreamPlayer AmbiancePlayer;
+
 	public override void _Ready()
 	{
 		base._Ready();
@@ -35,6 +39,16 @@ public partial class GameMaster : Node
 		if (GenericCore.Instance != null)
 			GD.Print($"[GameMaster] IsServer: {GenericCore.Instance.IsServer}");
 		_lobbyBackground = GetParent().GetNodeOrNull<ColorRect>("ColorRect");
+
+		EnableLoop(LobbyMusicPlayer);
+		EnableLoop(GameMusicPlayer);
+		EnableLoop(AmbiancePlayer);
+		LobbyMusicPlayer?.Play();
+	}
+
+	private static void EnableLoop(AudioStreamPlayer player)
+	{
+		if (player?.Stream is AudioStreamMP3 mp3) mp3.Loop = true;
 	}
 
 	// LobbyStreamlined._Process() forces all CanvasItem children of GenericCore visible
@@ -111,6 +125,10 @@ public partial class GameMaster : Node
 		GD.Print("[GameMaster] GAMESTART received!");
 		GameStarted = true;
 
+		LobbyMusicPlayer?.Stop();
+		GameMusicPlayer?.Play();
+		AmbiancePlayer?.Play();
+
 		foreach (var node in GetTree().GetNodesInGroup("NPM"))
 		{
 			if (node is UserNpm npm)
@@ -146,7 +164,10 @@ public partial class GameMaster : Node
 		// Hook up the round timer — only server drives it; clients just display it.
 		_roundTimer = levelNode.GetNodeOrNull<CountdownTimer>("CountdownTimer");
 		if (_roundTimer != null && GenericCore.Instance.IsServer)
+		{
+			_roundTimer.Pause(); // held until pre-game countdown finishes
 			_roundTimer.TimerCompleted += OnRoundTimerCompleted;
+		}
 
 		// Find all spawn points anywhere in the level hierarchy
 		_spawnPoints[0] = levelNode.FindChild("P1Start") as Node3D;
@@ -163,7 +184,64 @@ public partial class GameMaster : Node
 		}
 
 		await SpawnCharacters();
+
+		// Freeze players on all peers then run the pre-game countdown on the server.
+		Rpc(MethodName.SyncFreezeForPreGame);
+		RunPreGameCountdown();
 	}
+
+	[Rpc(MultiplayerApi.RpcMode.Authority, CallLocal = true,
+		TransferMode = MultiplayerPeer.TransferModeEnum.Reliable)]
+	private void SyncFreezeForPreGame()
+	{
+		foreach (var node in GetTree().GetNodesInGroup("Players"))
+			if (node is CashoutCasino.Character.Player p && p.IsMultiplayerAuthority())
+				p.SetFrozenForPreGame(true);
+		foreach (var node in GetTree().GetNodesInGroup("AIEnemies"))
+			if (node is CashoutCasino.Character.AIEnemy ai)
+				ai.SetPhysicsProcess(false);
+		// Pause round timer on ALL peers so it doesn't count down during pre-game.
+		FindRoundTimer()?.Pause();
+	}
+
+	private async void RunPreGameCountdown()
+	{
+		if (!GenericCore.Instance.IsServer) return;
+		for (int i = 5; i >= 1; i--)
+		{
+			Rpc(MethodName.SyncPreGameTick, i);
+			await ToSignal(GetTree().CreateTimer(1f), SceneTreeTimer.SignalName.Timeout);
+		}
+		Rpc(MethodName.SyncPreGameTick, 0); // "GO!"
+		await ToSignal(GetTree().CreateTimer(0.8f), SceneTreeTimer.SignalName.Timeout);
+		Rpc(MethodName.SyncUnfreezeForPreGame);
+	}
+
+	[Rpc(MultiplayerApi.RpcMode.Authority, CallLocal = true,
+		TransferMode = MultiplayerPeer.TransferModeEnum.Reliable)]
+	private void SyncPreGameTick(int secondsRemaining)
+	{
+		CashoutCasino.UI.PlayerHud.LocalInstance?.ShowPreGameCountdown(secondsRemaining);
+	}
+
+	[Rpc(MultiplayerApi.RpcMode.Authority, CallLocal = true,
+		TransferMode = MultiplayerPeer.TransferModeEnum.Reliable)]
+	private void SyncUnfreezeForPreGame()
+	{
+		foreach (var node in GetTree().GetNodesInGroup("Players"))
+			if (node is CashoutCasino.Character.Player p && p.IsMultiplayerAuthority())
+				p.SetFrozenForPreGame(false);
+		foreach (var node in GetTree().GetNodesInGroup("AIEnemies"))
+			if (node is CashoutCasino.Character.AIEnemy ai)
+				ai.SetPhysicsProcess(true);
+		CashoutCasino.UI.PlayerHud.LocalInstance?.HidePreGameCountdown();
+		// Start round timer on ALL peers from full duration.
+		var rt = FindRoundTimer();
+		if (rt != null) rt.StartCountdown(rt.defaultDuration);
+	}
+
+	private CashoutCasino.UI.CountdownTimer FindRoundTimer() =>
+		GetTree().Root.FindChild("CountdownTimer", true, false) as CashoutCasino.UI.CountdownTimer;
 
 	// Spawns one character per connected player
 	private async Task SpawnCharacters()
